@@ -1,0 +1,53 @@
+[02:08:07.321,441] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001044b length 16
+[02:08:07.321,472] <dbg> zmk: split_central_notify_func: data: 64
+[02:08:07.321,472] <dbg> zmk: split_central_notify_func: data: 0
+l[02:08:07.321,472] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,502] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,502] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,533] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,533] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,563] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,563] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,563] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,594] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,624] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,624] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,624] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,655] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,655] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.321,746] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 6
+[02:08:07.321,807] <dbg> zmk: position_state_changed_listener: 6 bubble (no undecided hold_tap active)
+[02:08:07.321,838] <dbg> zmk: position_state_down: combo: capturing position event 6
+[02:08:07.321,838] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[02:08:07.341,888] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=1 timestamp=7687341
+[02:08:07.357,025] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=7687356
+[02:08:07.357,055] <dbg> zmk: release_pressed_keys: combo: releasing position event 6
+[02:08:07.357,086] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 6, binding name: key_press
+[02:08:07.357,116] <dbg> zmk: on_keymap_binding_pressed: position 6 keycode 0x7000F
+[02:08:07.357,177] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x0F implicit_mods 0x00 explicit_mods 0x00
+[02:08:07.357,177] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[02:08:07.357,208] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:08:07.470,947] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001044b length 16
+[02:08:07.470,977] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.470,977] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.470,977] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,008] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,008] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,038] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,038] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,069] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,069] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,099] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,099] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,099] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,130] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,130] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,160] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,160] <dbg> zmk: split_central_notify_func: data: 0
+[02:08:07.471,282] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 6
+[02:08:07.471,313] <dbg> zmk: position_state_changed_listener: 6 bubble (no undecided hold_tap active)
+[02:08:07.471,374] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 6, binding name: key_press
+[02:08:07.471,374] <dbg> zmk: on_keymap_binding_released: position 6 keycode 0x7000F
+[02:08:07.471,435] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x0F implicit_mods 0x00 explicit_mods 0x00
+[02:08:07.471,435] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[02:08:07.471,466] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07

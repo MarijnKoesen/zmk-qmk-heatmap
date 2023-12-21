@@ -1,0 +1,75 @@
+[05:59:57.608,428] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001044b length 16
+[05:59:57.608,459] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,489] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,489] <dbg> zmk: split_central_notify_func: data: 8
+[05:59:57.608,520] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,520] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,551] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,551] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,551] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,581] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,581] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,612] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,612] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,642] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,642] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,673] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,703] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:57.608,764] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 19
+[05:59:57.608,795] <dbg> zmk: position_state_changed_listener: 19 bubble (no undecided hold_tap active)
+[05:59:57.608,856] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 19, binding name: hmr
+[05:59:57.608,917] <dbg> zmk: on_hold_tap_binding_pressed: 19 new undecided hold_tap
+[05:59:57.889,068] <dbg> zmk: decide_hold_tap: 19 decided hold-timer (balanced decision moment timer)
+[05:59:57.889,099] <dbg> zmk: on_keymap_binding_pressed: position 19 keycode 0x700E7
+[05:59:57.889,160] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0xE7 implicit_mods 0x00 explicit_mods 0x00
+[05:59:57.889,160] <dbg> zmk: zmk_hid_register_mod: Modifier 7 count 1
+[05:59:57.889,190] <dbg> zmk: zmk_hid_register_mod: Modifiers set to 0x80
+[05:59:57.889,190] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x80
+[05:59:57.889,221] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[05:59:58.515,136] <dbg> zmk: kscan_direct_read: Sending event at 0,5 state on
+[05:59:58.515,258] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 5, position: 10, pressed: true
+[05:59:58.515,289] <dbg> zmk: position_state_changed_listener: 10 bubble (no undecided hold_tap active)
+[05:59:58.515,350] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 10, binding name: hml
+[05:59:58.515,380] <dbg> zmk: on_hold_tap_binding_pressed: 10 new undecided hold_tap
+[05:59:58.649,108] <dbg> zmk: kscan_direct_read: Sending event at 0,5 state off
+[05:59:58.649,291] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 5, position: 10, pressed: false
+[05:59:58.649,353] <dbg> zmk: position_state_changed_listener: 10 bubble undecided hold-tap keyrelease event
+[05:59:58.649,414] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 10, binding name: hml
+[05:59:58.649,536] <dbg> zmk: decide_hold_tap: 10 decided tap (balanced decision moment key-up)
+[05:59:58.649,536] <dbg> zmk: on_keymap_binding_pressed: position 10 keycode 0x70004
+[05:59:58.649,597] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x04 implicit_mods 0x00 explicit_mods 0x00
+[05:59:58.649,597] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x80
+[05:59:58.649,627] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[05:59:58.649,688] <dbg> zmk: on_keymap_binding_released: position 10 keycode 0x70004
+[05:59:58.649,780] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x04 implicit_mods 0x00 explicit_mods 0x00
+[05:59:58.649,780] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x80
+[05:59:58.649,810] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[05:59:58.649,902] <dbg> zmk: on_hold_tap_binding_released: 10 cleaning up hold-tap
+[05:59:59.085,937] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001044b length 16
+[05:59:59.085,968] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.085,998] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.085,998] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.085,998] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,029] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,029] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,059] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,059] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,090] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,090] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,120] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,120] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,151] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,151] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,151] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,181] <dbg> zmk: split_central_notify_func: data: 0
+[05:59:59.086,242] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 19
+[05:59:59.086,303] <dbg> zmk: position_state_changed_listener: 19 bubble (no undecided hold_tap active)
+[05:59:59.086,364] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 19, binding name: hmr
+[05:59:59.086,395] <dbg> zmk: on_keymap_binding_released: position 19 keycode 0x700E7
+[05:59:59.086,425] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0xE7 implicit_mods 0x00 explicit_mods 0x00
+[05:59:59.086,456] <dbg> zmk: zmk_hid_unregister_mod: Modifier 7 count: 0
+[05:59:59.086,456] <dbg> zmk: zmk_hid_unregister_mod: Modifier 7 released
+[05:59:59.086,486] <dbg> zmk: zmk_hid_unregister_mod: Modifiers set to 0x00
+[05:59:59.086,486] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[05:59:59.086,517] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[05:59:59.086,578] <dbg> zmk: on_hold_tap_binding_released: 19 cleaning up hold-tap

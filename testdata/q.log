@@ -1,0 +1,16 @@
+[02:04:35.385,101] <dbg> zmk: kscan_direct_read: Sending event at 0,0 state on
+[02:04:35.385,223] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 0, position: 0, pressed: true
+[02:04:35.385,253] <dbg> zmk: position_state_changed_listener: 0 bubble (no undecided hold_tap active)
+[02:04:35.385,314] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 0, binding name: key_press
+[02:04:35.385,314] <dbg> zmk: on_keymap_binding_pressed: position 0 keycode 0x70014
+[02:04:35.385,375] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x14 implicit_mods 0x00 explicit_mods 0x00
+[02:04:35.385,375] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[02:04:35.385,406] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:04:35.516,143] <dbg> zmk: kscan_direct_read: Sending event at 0,0 state off
+[02:04:35.516,326] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 0, position: 0, pressed: false
+[02:04:35.516,357] <dbg> zmk: position_state_changed_listener: 0 bubble (no undecided hold_tap active)
+[02:04:35.516,418] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 0, binding name: key_press
+[02:04:35.516,418] <dbg> zmk: on_keymap_binding_released: position 0 keycode 0x70014
+[02:04:35.516,479] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x14 implicit_mods 0x00 explicit_mods 0x00
+[02:04:35.516,479] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[02:04:35.516,510] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07

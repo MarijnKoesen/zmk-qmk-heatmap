@@ -1,0 +1,21 @@
+[02:05:04.582,092] <dbg> zmk: kscan_direct_read: Sending event at 0,1 state on
+[02:05:04.582,214] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 1, position: 1, pressed: true
+[02:05:04.582,244] <dbg> zmk: position_state_changed_listener: 1 bubble (no undecided hold_tap active)
+[02:05:04.582,275] <dbg> zmk: position_state_down: combo: capturing position event 1
+[02:05:04.582,305] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[02:05:04.602,386] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=1 timestamp=7504602
+[02:05:04.617,553] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=7504617
+[02:05:04.617,553] <dbg> zmk: release_pressed_keys: combo: releasing position event 1
+[02:05:04.617,614] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 1, binding name: key_press
+[02:05:04.617,645] <dbg> zmk: on_keymap_binding_pressed: position 1 keycode 0x7001A
+[02:05:04.617,675] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x1A implicit_mods 0x00 explicit_mods 0x00
+[02:05:04.617,706] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[02:05:04.617,706] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:05:04.694,122] <dbg> zmk: kscan_direct_read: Sending event at 0,1 state off
+[02:05:04.694,366] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 1, position: 1, pressed: false
+[02:05:04.694,427] <dbg> zmk: position_state_changed_listener: 1 bubble (no undecided hold_tap active)
+[02:05:04.694,488] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 1, binding name: key_press
+[02:05:04.694,519] <dbg> zmk: on_keymap_binding_released: position 1 keycode 0x7001A
+[02:05:04.694,549] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x1A implicit_mods 0x00 explicit_mods 0x00
+[02:05:04.694,580] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[02:05:04.694,580] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07

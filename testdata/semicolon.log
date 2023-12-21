@@ -1,0 +1,39 @@
+[02:06:15.425,140] <dbg> zmk: kscan_direct_read: Sending event at 0,15 state on
+[02:06:15.425,262] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 15, position: 30, pressed: true
+[02:06:15.425,292] <dbg> zmk: position_state_changed_listener: 30 bubble (no undecided hold_tap active)
+[02:06:15.425,354] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 30, binding name: layer_tap
+[02:06:15.425,415] <dbg> zmk: on_hold_tap_binding_pressed: 30 new undecided hold_tap
+[02:06:15.560,180] <dbg> zmk: kscan_direct_read: Sending event at 0,8 state on
+;[02:06:15.560,272] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 8, position: 13, pressed: true
+[02:06:15.560,333] <dbg> zmk: position_state_changed_listener: 30 capturing 13 down event
+[02:06:15.560,363] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[02:06:15.625,579] <dbg> zmk: decide_hold_tap: 30 decided hold-timer (balanced decision moment timer)
+[02:06:15.625,610] <dbg> zmk: mo_keymap_binding_pressed: position 30 layer 1
+[02:06:15.625,610] <dbg> zmk: set_layer_state: layer_changed: layer 1 state 1
+[02:06:15.625,701] <dbg> zmk: release_captured_events: Releasing key position event for position 13 pressed
+[02:06:15.625,732] <dbg> zmk: position_state_changed_listener: 13 bubble (no undecided hold_tap active)
+[02:06:15.625,762] <dbg> zmk: position_state_down: combo: capturing position event 13
+[02:06:15.625,762] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[02:06:15.625,823] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=2 timestamp=7575580
+[02:06:15.625,854] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=7575595
+[02:06:15.625,885] <dbg> zmk: release_pressed_keys: combo: releasing position event 13
+[02:06:15.625,915] <dbg> zmk: zmk_keymap_apply_position_state: layer: 1 position: 13, binding name: key_press
+[02:06:15.625,946] <dbg> zmk: on_keymap_binding_pressed: position 13 keycode 0x70033
+[02:06:15.626,037] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x33 implicit_mods 0x00 explicit_mods 0x00
+[02:06:15.626,037] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[02:06:15.626,068] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:06:15.703,155] <dbg> zmk: kscan_direct_read: Sending event at 0,8 state off
+[02:06:15.703,369] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 8, position: 13, pressed: false
+[02:06:15.703,399] <dbg> zmk: position_state_changed_listener: 13 bubble (no undecided hold_tap active)
+[02:06:15.703,460] <dbg> zmk: zmk_keymap_apply_position_state: layer: 1 position: 13, binding name: key_press
+[02:06:15.703,491] <dbg> zmk: on_keymap_binding_released: position 13 keycode 0x70033
+[02:06:15.703,552] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x33 implicit_mods 0x00 explicit_mods 0x00
+[02:06:15.703,552] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[02:06:15.703,582] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:06:15.725,128] <dbg> zmk: kscan_direct_read: Sending event at 0,15 state off
+[02:06:15.725,341] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 15, position: 30, pressed: false
+[02:06:15.725,402] <dbg> zmk: position_state_changed_listener: 30 bubble (no undecided hold_tap active)
+[02:06:15.725,433] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 30, binding name: layer_tap
+[02:06:15.725,524] <dbg> zmk: mo_keymap_binding_released: position 30 layer 1
+[02:06:15.725,524] <dbg> zmk: set_layer_state: layer_changed: layer 1 state 0
+[02:06:15.725,585] <dbg> zmk: on_hold_tap_binding_released: 30 cleaning up hold-tap

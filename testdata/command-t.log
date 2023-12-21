@@ -1,0 +1,51 @@
+[02:09:45.666,107] <dbg> zmk: kscan_direct_read: Sending event at 0,5 state on
+[02:09:45.666,229] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 5, position: 10, pressed: true
+[02:09:45.666,259] <dbg> zmk: position_state_changed_listener: 10 bubble (no undecided hold_tap active)
+[02:09:45.666,320] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 10, binding name: hml
+[02:09:45.666,381] <dbg> zmk: on_hold_tap_binding_pressed: 10 new undecided hold_tap
+[02:09:45.936,096] <dbg> zmk: kscan_direct_read: Sending event at 0,8 state on
+[02:09:45.936,218] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 8, position: 13, pressed: true
+[02:09:45.936,248] <dbg> zmk: position_state_changed_listener: 10 capturing 13 down event
+[02:09:45.936,279] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[02:09:45.946,533] <dbg> zmk: decide_hold_tap: 10 decided hold-timer (balanced decision moment timer)
+[02:09:45.946,563] <dbg> zmk: on_keymap_binding_pressed: position 10 keycode 0x700E3
+[02:09:45.946,594] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0xE3 implicit_mods 0x00 explicit_mods 0x00
+[02:09:45.946,624] <dbg> zmk: zmk_hid_register_mod: Modifier 3 count 1
+[02:09:45.946,624] <dbg> zmk: zmk_hid_register_mod: Modifiers set to 0x08
+[02:09:45.946,655] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x08
+[02:09:45.946,655] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:09:45.946,777] <dbg> zmk: release_captured_events: Releasing key position event for position 13 pressed
+[02:09:45.946,777] <dbg> zmk: position_state_changed_listener: 13 bubble (no undecided hold_tap active)
+[02:09:45.946,838] <dbg> zmk: position_state_down: combo: capturing position event 13
+[02:09:45.946,838] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[02:09:45.956,939] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=2 timestamp=7785956
+[02:09:45.972,106] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=7785971
+[02:09:45.972,106] <dbg> zmk: release_pressed_keys: combo: releasing position event 13
+[02:09:45.972,167] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 13, binding name: hml
+[02:09:45.972,229] <dbg> zmk: on_hold_tap_binding_pressed: 13 new undecided hold_tap
+[02:09:46.058,197] <dbg> zmk: kscan_direct_read: Sending event at 0,8 state off
+[02:09:46.058,349] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 8, position: 13, pressed: false
+[02:09:46.058,380] <dbg> zmk: position_state_changed_listener: 13 bubble undecided hold-tap keyrelease event
+[02:09:46.058,441] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 13, binding name: hml
+[02:09:46.058,532] <dbg> zmk: decide_hold_tap: 13 decided tap (balanced decision moment key-up)
+[02:09:46.058,563] <dbg> zmk: on_keymap_binding_pressed: position 13 keycode 0x70017
+[02:09:46.058,593] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x17 implicit_mods 0x00 explicit_mods 0x00
+[02:09:46.058,624] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x08
+[02:09:46.058,624] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:09:46.058,715] <dbg> zmk: on_keymap_binding_released: position 13 keycode 0x70017
+[02:09:46.058,746] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x17 implicit_mods 0x00 explicit_mods 0x00
+[02:09:46.058,746] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x08
+[02:09:46.058,776] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:09:46.059,478] <dbg> zmk: on_hold_tap_binding_released: 13 cleaning up hold-tap
+[02:09:46.222,167] <dbg> zmk: kscan_direct_read: Sending event at 0,5 state off
+[02:09:46.222,381] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 5, position: 10, pressed: false
+[02:09:46.222,412] <dbg> zmk: position_state_changed_listener: 10 bubble (no undecided hold_tap active)
+[02:09:46.222,473] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 10, binding name: hml
+[02:09:46.222,534] <dbg> zmk: on_keymap_binding_released: position 10 keycode 0x700E3
+[02:09:46.222,564] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0xE3 implicit_mods 0x00 explicit_mods 0x00
+[02:09:46.222,564] <dbg> zmk: zmk_hid_unregister_mod: Modifier 3 count: 0
+[02:09:46.222,595] <dbg> zmk: zmk_hid_unregister_mod: Modifier 3 released
+[02:09:46.222,595] <dbg> zmk: zmk_hid_unregister_mod: Modifiers set to 0x00
+[02:09:46.222,625] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[02:09:46.222,625] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[02:09:46.222,686] <dbg> zmk: on_hold_tap_binding_released: 10 cleaning up hold-tap
