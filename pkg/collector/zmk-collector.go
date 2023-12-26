@@ -1,4 +1,4 @@
-package log_parser
+package collector
 
 import (
 	"encoding/json"
@@ -10,8 +10,8 @@ import (
 )
 
 type ComboPress struct {
-	Key    string
 	Number int
+	Key    string
 	Count  int
 }
 

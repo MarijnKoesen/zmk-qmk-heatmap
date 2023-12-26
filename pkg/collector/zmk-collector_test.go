@@ -1,4 +1,4 @@
-package log_parser
+package collector
 
 import (
 	"bufio"
@@ -20,7 +20,7 @@ var countTests = []struct {
 }{
 	{
 		// primary Layer, simple key press on left side
-		"testdata/q.log",
+		"testdata/zmk/q.log",
 		[]KeyPress{
 			{Layer: 0, Position: 0, Count: 1},
 		},
@@ -28,7 +28,7 @@ var countTests = []struct {
 	},
 	{
 		// primary Layer, simple key press on left side
-		"testdata/w.log",
+		"testdata/zmk/w.log",
 		[]KeyPress{
 			{Layer: 0, Position: 1, Count: 1},
 		},
@@ -36,7 +36,7 @@ var countTests = []struct {
 	},
 	{
 		// primary Layer, simple key press on right side
-		"testdata/l.log",
+		"testdata/zmk/l.log",
 		[]KeyPress{
 			{Layer: 0, Position: 6, Count: 1},
 		},
@@ -44,7 +44,7 @@ var countTests = []struct {
 	},
 	{
 		// secondary Layer on left side
-		"testdata/semicolon.log",
+		"testdata/zmk/semicolon.log",
 		[]KeyPress{
 			{Layer: 0, Position: 30, Count: 1},
 			{Layer: 1, Position: 13, Count: 1},
@@ -53,7 +53,7 @@ var countTests = []struct {
 	},
 	{
 		// secondary Layer on left side
-		"testdata/parentheses-close.log",
+		"testdata/zmk/parentheses-close.log",
 		[]KeyPress{
 			{Layer: 0, Position: 30, Count: 1},
 			{Layer: 1, Position: 11, Count: 1},
@@ -62,7 +62,7 @@ var countTests = []struct {
 	},
 	{
 		// secondary Layer on right side
-		"testdata/1.log",
+		"testdata/zmk/1.log",
 		[]KeyPress{
 			{Layer: 0, Position: 30, Count: 1},
 			{Layer: 1, Position: 26, Count: 1},
@@ -71,7 +71,7 @@ var countTests = []struct {
 	},
 	{
 		// home row mode left side
-		"testdata/ctrl-c.log",
+		"testdata/zmk/ctrl-c.log",
 		[]KeyPress{
 			{Layer: 0, Position: 17, Count: 1},
 			{Layer: 0, Position: 22, Count: 1},
@@ -80,7 +80,7 @@ var countTests = []struct {
 	},
 	{
 		// home row mode left side
-		"testdata/command-t.log",
+		"testdata/zmk/command-t.log",
 		[]KeyPress{
 			{Layer: 0, Position: 10, Count: 1},
 			{Layer: 0, Position: 13, Count: 1},
@@ -89,7 +89,7 @@ var countTests = []struct {
 	},
 	{
 		// home row mode left + right side
-		"testdata/command-a.log",
+		"testdata/zmk/command-a.log",
 		[]KeyPress{
 			{Layer: 0, Position: 19, Count: 1},
 			{Layer: 0, Position: 10, Count: 1},
@@ -98,7 +98,7 @@ var countTests = []struct {
 	},
 	{
 		// multiple presses
-		"testdata/multiple-presses.log",
+		"testdata/zmk/multiple-presses.log",
 		[]KeyPress{
 			{Layer: 0, Position: 12, Count: 3},
 			{Layer: 0, Position: 13, Count: 1},
@@ -110,7 +110,7 @@ var countTests = []struct {
 	},
 	{
 		// combo-test, once L, once N, then combo of L+N=+
-		"testdata/combo-test-on-right-side.log",
+		"testdata/zmk/combo-test-on-right-side.log",
 		[]KeyPress{
 			{Layer: 0, Position: 6, Count: 2},
 			{Layer: 0, Position: 16, Count: 2},
@@ -125,7 +125,7 @@ var countTests = []struct {
 	},
 	{
 		// combo-test, once B, once G, then combo of B+G=%
-		"testdata/combo-test-on-left-side.log",
+		"testdata/zmk/combo-test-on-left-side.log",
 		[]KeyPress{
 			{Layer: 0, Position: 4, Count: 1},
 			{Layer: 0, Position: 14, Count: 1},
@@ -138,6 +138,21 @@ var countTests = []struct {
 			},
 		},
 	},
+	{
+		// combo first (, then <
+		"testdata/zmk/combo_without_hold_then_with.log",
+		[]KeyPress{
+			{Layer: 0, Position: 33, Count: 1},
+		},
+		// TODO: this is wrong, we first press ( and then <
+		[]ComboPress{
+			{
+				Key:    "(",
+				Number: 44,
+				Count:  2,
+			},
+		},
+	},
 }
 
 func parseTestFile(filename string) Parser {
@@ -146,9 +161,8 @@ func parseTestFile(filename string) Parser {
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer file.Close()
 
-	keyMap, err := keymap.Load("../../testdata/keymap.yaml")
+	keyMap, err := keymap.Load("../../testdata/zmk/keymap.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+// t h type || string
+
 type Combo struct {
 	Keys   []int    `yaml:"p"`
 	Key    string   `yaml:"k"`
@@ -15,10 +17,6 @@ type Keymap struct {
 	NumberOfKeys int
 	Combos       []Combo
 }
-
-//func (c Combo) String() string {
-//	return "Combo: " + c.Key
-//}
 
 func Load(filename string) (keymap Keymap, err error) {
 	keymap = Keymap{Combos: []Combo{}}
@@ -34,21 +32,40 @@ func Load(filename string) (keymap Keymap, err error) {
 		return
 	}
 
-	layers := obj["layers"].(map[string]interface{})
-	firstLayer := layers[keys(layers)[0]].([]interface{})
-	for _, row := range firstLayer {
-		keymap.NumberOfKeys += len(row.([]interface{}))
+	keymap.NumberOfKeys = countNumberOfKeysInLayers(obj["layers"].(map[string]interface{}))
+
+	combos, comboExists := obj["combos"].([]interface{})
+	if comboExists {
+		for _, combo := range combos {
+			combo2 := combo.(map[string]interface{})
+
+			c := Combo{
+				Keys:   convertSlice[int](combo2["p"].([]interface{})),
+				Key:    combo2["k"].(string),
+				Layers: []string{},
+			}
+
+			if comboLayers, ok := combo2["l"]; ok {
+				c.Layers = convertSlice[string](comboLayers.([]interface{}))
+			}
+
+			keymap.Combos = append(keymap.Combos, c)
+		}
 	}
 
-	combos := obj["combos"].([]interface{})
-	for _, combo := range combos {
-		combo2 := combo.(map[string]interface{})
+	return
+}
 
-		keymap.Combos = append(keymap.Combos, Combo{
-			Keys:   convertSlice[int](combo2["p"].([]interface{})),
-			Key:    combo2["k"].(string),
-			Layers: convertSlice[string](combo2["l"].([]interface{})),
-		})
+func countNumberOfKeysInLayers(layers map[string]interface{}) (numberOfKeys int) {
+	for _, row := range layers[keys(layers)[0]].([]interface{}) {
+		switch row.(type) {
+		case []interface{}:
+			numberOfKeys += len(row.([]interface{}))
+			break
+		case interface{}:
+			numberOfKeys++
+			break
+		}
 	}
 
 	return
@@ -67,5 +84,5 @@ func keys(someMap map[string]interface{}) (keys []string) {
 		keys = append(keys, key)
 	}
 
-	return keys
+	return
 }

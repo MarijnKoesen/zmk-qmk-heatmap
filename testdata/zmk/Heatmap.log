@@ -1,0 +1,427 @@
+# Typed: Heatmap!
+[22:24:20.684,967] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:20.684,997] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.684,997] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,028] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,028] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,028] <dbg> zmk: split_central_notify_func: data: 2
+[22:24:20.685,028] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,058] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,058] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,058] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,058] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,089] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,089] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,089] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,089] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,119] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,119] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:20.685,180] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 33
+[22:24:20.685,211] <dbg> zmk: position_state_changed_listener: 33 bubble (no undecided hold_tap active)
+[22:24:20.685,272] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 33, binding name: key_press
+[22:24:20.685,302] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 33 keycode 0x700E5 keycode2 0x00
+[22:24:20.685,333] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0xE5 implicit_mods 0x00 explicit_mods 0x00
+[22:24:20.685,333] <dbg> zmk: zmk_hid_register_mod: Modifier 5 count 1
+[22:24:20.685,333] <dbg> zmk: zmk_hid_register_mod: Modifiers set to 0x20
+[22:24:20.685,363] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x20
+[22:24:20.685,363] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:22.634,979] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:22.635,009] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,009] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,009] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,009] <dbg> zmk: split_central_notify_func: data: 4
+[22:24:22.635,040] <dbg> zmk: split_central_notify_func: data: 2
+[22:24:22.635,040] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,040] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,040] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,070] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,070] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,070] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,070] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,101] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,101] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,101] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,101] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.635,192] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 26
+[22:24:22.635,223] <dbg> zmk: position_state_changed_listener: 26 bubble (no undecided hold_tap active)
+[22:24:22.635,253] <dbg> zmk: position_state_down: combo: capturing position event 26
+[22:24:22.635,253] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[22:24:22.655,364] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=1 timestamp=80662655
+[22:24:22.670,501] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=80662670
+[22:24:22.670,532] <dbg> zmk: release_pressed_keys: combo: releasing position event 26
+[22:24:22.670,593] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 26, binding name: key_press
+[22:24:22.670,593] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 26 keycode 0x7000B keycode2 0x00
+[22:24:22.670,654] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x0B implicit_mods 0x00 explicit_mods 0x00
+[22:24:22.670,654] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x20
+[22:24:22.670,654] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:22.777,465] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:22.777,496] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,496] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,496] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,496] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,526] <dbg> zmk: split_central_notify_func: data: 2
+[22:24:22.777,526] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,526] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,526] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,557] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,557] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,557] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,557] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,587] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,587] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,587] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,587] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.777,679] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 26
+[22:24:22.777,709] <dbg> zmk: position_state_changed_listener: 26 bubble (no undecided hold_tap active)
+[22:24:22.777,770] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 26, binding name: key_press
+[22:24:22.777,770] <dbg> zmk: on_keymap_binding_released: position 26 keycode 0x7000B
+[22:24:22.777,801] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x0B implicit_mods 0x00 explicit_mods 0x00
+[22:24:22.777,832] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x20
+[22:24:22.777,832] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:22.867,462] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:22.867,492] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,492] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,492] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,523] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,523] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,523] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,523] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,523] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,553] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,553] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,553] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,584] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,584] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,584] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,584] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,614] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.867,675] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 33
+[22:24:22.867,706] <dbg> zmk: position_state_changed_listener: 33 bubble (no undecided hold_tap active)
+[22:24:22.867,767] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 33, binding name: key_press
+[22:24:22.867,767] <dbg> zmk: on_keymap_binding_released: position 33 keycode 0x700E5
+[22:24:22.867,797] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0xE5 implicit_mods 0x00 explicit_mods 0x00
+[22:24:22.867,828] <dbg> zmk: zmk_hid_unregister_mod: Modifier 5 count: 0
+[22:24:22.867,828] <dbg> zmk: zmk_hid_unregister_mod: Modifier 5 released
+[22:24:22.867,828] <dbg> zmk: zmk_hid_unregister_mod: Modifiers set to 0x00
+[22:24:22.867,828] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[22:24:22.867,858] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:22.949,981] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:22.950,012] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,012] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,012] <dbg> zmk: split_central_notify_func: data: 2
+[22:24:22.950,012] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,042] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,042] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,042] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,042] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,073] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,073] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,073] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,073] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,103] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,103] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,103] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,103] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:22.950,195] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 17
+[22:24:22.950,225] <dbg> zmk: position_state_changed_listener: 17 bubble (no undecided hold_tap active)
+[22:24:22.950,256] <dbg> zmk: position_state_down: combo: capturing position event 17
+[22:24:22.950,256] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[22:24:22.970,367] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=2 timestamp=80662970
+[22:24:22.985,504] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=80662985
+[22:24:22.985,534] <dbg> zmk: release_pressed_keys: combo: releasing position event 17
+[22:24:22.985,595] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 17, binding name: hmr
+[22:24:22.985,626] <dbg> zmk: on_hold_tap_binding_pressed: 17 new undecided hold_tap
+[22:24:23.039,978] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:23.040,008] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,008] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,008] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,008] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,039] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,039] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,039] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,039] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,069] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,069] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,069] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,100] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,100] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,100] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,100] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,100] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.040,191] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 17
+[22:24:23.040,222] <dbg> zmk: position_state_changed_listener: 17 bubble undecided hold-tap keyrelease event
+[22:24:23.040,283] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 17, binding name: hmr
+[22:24:23.040,374] <dbg> zmk: decide_hold_tap: 17 decided tap (balanced decision moment key-up)
+[22:24:23.040,374] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 17 keycode 0x70008 keycode2 0x00
+[22:24:23.040,435] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x08 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.040,435] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[22:24:23.040,435] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.040,496] <dbg> zmk: on_keymap_binding_released: position 17 keycode 0x70008
+[22:24:23.040,527] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x08 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.040,557] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[22:24:23.040,557] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.041,076] <dbg> zmk: on_hold_tap_binding_released: 17 cleaning up hold-tap
+[22:24:23.067,382] <dbg> zmk: kscan_direct_read: Sending event at 0,5 state on
+[22:24:23.067,535] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 5, position: 10, pressed: true
+[22:24:23.067,565] <dbg> zmk: position_state_changed_listener: 10 bubble (no undecided hold_tap active)
+[22:24:23.067,596] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 10, binding name: hml
+[22:24:23.067,657] <dbg> zmk: on_hold_tap_binding_pressed: 10 new undecided hold_tap
+[22:24:23.067,718] <dbg> zmk: decide_hold_tap: 10 decided tap (balanced decision moment quick-tap)
+[22:24:23.067,718] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 10 keycode 0x70004 keycode2 0x00
+[22:24:23.067,779] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x04 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.067,779] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[22:24:23.067,779] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.232,116] <dbg> zmk: kscan_direct_read: Sending event at 0,5 state off
+[22:24:23.232,421] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 5, position: 10, pressed: false
+[22:24:23.232,452] <dbg> zmk: position_state_changed_listener: 10 bubble (no undecided hold_tap active)
+[22:24:23.232,513] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 10, binding name: hml
+[22:24:23.232,543] <dbg> zmk: on_keymap_binding_released: position 10 keycode 0x70004
+[22:24:23.232,574] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x04 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.232,574] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[22:24:23.232,604] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.232,635] <dbg> zmk: on_hold_tap_binding_released: 10 cleaning up hold-tap
+[22:24:23.294,097] <dbg> zmk: kscan_direct_read: Sending event at 0,8 state on
+[22:24:23.294,189] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 8, position: 13, pressed: true
+[22:24:23.294,219] <dbg> zmk: position_state_changed_listener: 13 bubble (no undecided hold_tap active)
+[22:24:23.294,250] <dbg> zmk: position_state_down: combo: capturing position event 13
+[22:24:23.294,281] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[22:24:23.314,361] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=2 timestamp=80663314
+[22:24:23.329,467] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=80663329
+[22:24:23.329,498] <dbg> zmk: release_pressed_keys: combo: releasing position event 13
+[22:24:23.329,528] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 13, binding name: hml
+[22:24:23.329,589] <dbg> zmk: on_hold_tap_binding_pressed: 13 new undecided hold_tap
+[22:24:23.406,127] <dbg> zmk: kscan_direct_read: Sending event at 0,8 state off
+[22:24:23.406,311] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 8, position: 13, pressed: false
+[22:24:23.406,341] <dbg> zmk: position_state_changed_listener: 13 bubble undecided hold-tap keyrelease event
+[22:24:23.406,402] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 13, binding name: hml
+[22:24:23.406,494] <dbg> zmk: decide_hold_tap: 13 decided tap (balanced decision moment key-up)
+[22:24:23.406,524] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 13 keycode 0x70017 keycode2 0x00
+[22:24:23.406,555] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x17 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.406,555] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[22:24:23.406,585] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.406,646] <dbg> zmk: on_keymap_binding_released: position 13 keycode 0x70017
+[22:24:23.406,677] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x17 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.406,677] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[22:24:23.406,707] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.407,104] <dbg> zmk: on_hold_tap_binding_released: 13 cleaning up hold-tap
+[22:24:23.482,452] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:23.482,482] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,482] <dbg> zmk: split_central_notify_func: data: 128
+[22:24:23.482,513] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,513] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,513] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,513] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,543] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,543] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,543] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,543] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,574] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,574] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,574] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,574] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,604] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,604] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.482,666] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 15
+[22:24:23.482,696] <dbg> zmk: position_state_changed_listener: 15 bubble (no undecided hold_tap active)
+[22:24:23.482,757] <dbg> zmk: position_state_down: combo: capturing position event 15
+[22:24:23.482,757] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[22:24:23.517,822] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=80663517
+[22:24:23.517,852] <dbg> zmk: release_pressed_keys: combo: releasing position event 15
+[22:24:23.517,913] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 15, binding name: key_press
+[22:24:23.517,913] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 15 keycode 0x70010 keycode2 0x00
+[22:24:23.517,974] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x10 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.517,974] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[22:24:23.517,974] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.609,954] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:23.610,015] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,015] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,015] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,015] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,015] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,046] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,046] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,046] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,046] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,076] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,076] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,076] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,076] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,107] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,107] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,107] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:23.610,198] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 15
+[22:24:23.610,229] <dbg> zmk: position_state_changed_listener: 15 bubble (no undecided hold_tap active)
+[22:24:23.610,290] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 15, binding name: key_press
+[22:24:23.610,290] <dbg> zmk: on_keymap_binding_released: position 15 keycode 0x70010
+[22:24:23.610,321] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x10 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.610,321] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[22:24:23.610,351] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.641,113] <dbg> zmk: kscan_direct_read: Sending event at 0,5 state on
+[22:24:23.641,204] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 5, position: 10, pressed: true
+[22:24:23.641,235] <dbg> zmk: position_state_changed_listener: 10 bubble (no undecided hold_tap active)
+[22:24:23.641,296] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 10, binding name: hml
+[22:24:23.641,326] <dbg> zmk: on_hold_tap_binding_pressed: 10 new undecided hold_tap
+[22:24:23.793,121] <dbg> zmk: kscan_direct_read: Sending event at 0,5 state off
+[22:24:23.793,304] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 5, position: 10, pressed: false
+[22:24:23.793,334] <dbg> zmk: position_state_changed_listener: 10 bubble undecided hold-tap keyrelease event
+[22:24:23.793,395] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 10, binding name: hml
+[22:24:23.793,487] <dbg> zmk: decide_hold_tap: 10 decided tap (balanced decision moment key-up)
+[22:24:23.793,518] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 10 keycode 0x70004 keycode2 0x00
+[22:24:23.793,548] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x04 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.793,548] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[22:24:23.793,548] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.793,609] <dbg> zmk: on_keymap_binding_released: position 10 keycode 0x70004
+[22:24:23.793,640] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x04 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.793,670] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[22:24:23.793,670] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:23.794,097] <dbg> zmk: on_hold_tap_binding_released: 10 cleaning up hold-tap
+[22:24:23.948,120] <dbg> zmk: kscan_direct_read: Sending event at 0,3 state on
+[22:24:23.948,242] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 3, position: 3, pressed: true
+[22:24:23.948,272] <dbg> zmk: position_state_changed_listener: 3 bubble (no undecided hold_tap active)
+[22:24:23.948,303] <dbg> zmk: position_state_down: combo: capturing position event 3
+[22:24:23.948,303] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[22:24:23.968,353] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=1 timestamp=80663968
+[22:24:23.983,489] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=80663983
+[22:24:23.983,520] <dbg> zmk: release_pressed_keys: combo: releasing position event 3
+[22:24:23.983,551] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 3, binding name: key_press
+[22:24:23.983,581] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 3 keycode 0x70013 keycode2 0x00
+[22:24:23.983,612] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x13 implicit_mods 0x00 explicit_mods 0x00
+[22:24:23.983,642] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00
+[22:24:23.983,642] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:24.045,135] <dbg> zmk: kscan_direct_read: Sending event at 0,3 state off
+[22:24:24.045,318] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 3, position: 3, pressed: false
+[22:24:24.045,349] <dbg> zmk: position_state_changed_listener: 3 bubble (no undecided hold_tap active)
+[22:24:24.045,410] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 3, binding name: key_press
+[22:24:24.045,410] <dbg> zmk: on_keymap_binding_released: position 3 keycode 0x70013
+[22:24:24.045,440] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x13 implicit_mods 0x00 explicit_mods 0x00
+[22:24:24.045,471] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[22:24:24.045,471] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:25.484,130] <dbg> zmk: kscan_direct_read: Sending event at 0,15 state on
+[22:24:25.484,222] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 15, position: 30, pressed: true
+[22:24:25.484,252] <dbg> zmk: position_state_changed_listener: 30 bubble (no undecided hold_tap active)
+[22:24:25.484,313] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 30, binding name: layer_tap
+[22:24:25.484,375] <dbg> zmk: on_hold_tap_binding_pressed: 30 new undecided hold_tap
+[22:24:25.649,963] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:25.649,963] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.649,993] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.649,993] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.649,993] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.649,993] <dbg> zmk: split_central_notify_func: data: 2
+[22:24:25.650,054] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,054] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,054] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,054] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,054] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,085] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,115] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,115] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,115] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,115] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,146] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.650,268] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 33
+[22:24:25.650,329] <dbg> zmk: position_state_changed_listener: 30 capturing 33 down event
+[22:24:25.650,329] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[22:24:25.684,539] <dbg> zmk: decide_hold_tap: 30 decided hold-timer (balanced decision moment timer)
+[22:24:25.684,570] <dbg> zmk: mo_keymap_binding_pressed: position 30 layer 1
+[22:24:25.684,570] <dbg> zmk: set_layer_state: layer_changed: layer 1 state 1
+[22:24:25.684,661] <dbg> zmk: release_captured_events: Releasing key position event for position 33 pressed
+[22:24:25.684,661] <dbg> zmk: position_state_changed_listener: 33 bubble (no undecided hold_tap active)
+[22:24:25.684,814] <dbg> zmk: zmk_keymap_apply_position_state: layer: 1 position: 33, binding name: transparent
+[22:24:25.684,844] <dbg> zmk: zmk_keymap_position_state_changed: behavior processing to continue to next layer
+[22:24:25.684,906] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 33, binding name: key_press
+[22:24:25.684,906] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 33 keycode 0x700E5 keycode2 0x00
+[22:24:25.684,967] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0xE5 implicit_mods 0x00 explicit_mods 0x00
+[22:24:25.684,967] <dbg> zmk: zmk_hid_register_mod: Modifier 5 count 1
+[22:24:25.684,967] <dbg> zmk: zmk_hid_register_mod: Modifiers set to 0x20
+[22:24:25.684,997] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x20
+[22:24:25.684,997] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:25.852,478] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:25.852,478] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,478] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,478] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,508] <dbg> zmk: split_central_notify_func: data: 4
+[22:24:25.852,508] <dbg> zmk: split_central_notify_func: data: 2
+[22:24:25.852,508] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,508] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,539] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,539] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,539] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,569] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,569] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,569] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,569] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,569] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,600] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:25.852,661] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 26
+[22:24:25.852,691] <dbg> zmk: position_state_changed_listener: 26 bubble (no undecided hold_tap active)
+[22:24:25.852,722] <dbg> zmk: position_state_down: combo: capturing position event 26
+[22:24:25.852,722] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[22:24:25.872,833] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=1 timestamp=80665872
+[22:24:25.888,000] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=0 timestamp=80665887
+[22:24:25.888,031] <dbg> zmk: release_pressed_keys: combo: releasing position event 26
+[22:24:25.888,122] <dbg> zmk: zmk_keymap_apply_position_state: layer: 1 position: 26, binding name: key_press
+[22:24:25.888,122] <dbg> zmk: on_keymap_binding_pressed: layer 1 position 26 keycode 0x7001E keycode2 0x00
+[22:24:25.888,183] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x1E implicit_mods 0x00 explicit_mods 0x00
+[22:24:25.888,183] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x20
+[22:24:25.888,183] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:26.002,471] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:26.002,471] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,471] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,502] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,502] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,502] <dbg> zmk: split_central_notify_func: data: 2
+[22:24:26.002,502] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,532] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,532] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,532] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,532] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,563] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,563] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,563] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,563] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,593] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,593] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.002,655] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 26
+[22:24:26.002,685] <dbg> zmk: position_state_changed_listener: 26 bubble (no undecided hold_tap active)
+[22:24:26.002,746] <dbg> zmk: zmk_keymap_apply_position_state: layer: 1 position: 26, binding name: key_press
+[22:24:26.002,777] <dbg> zmk: on_keymap_binding_released: position 26 keycode 0x7001E
+[22:24:26.002,807] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x1E implicit_mods 0x00 explicit_mods 0x00
+[22:24:26.002,807] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x20
+[22:24:26.002,807] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:26.039,978] <dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x2001607b length 16
+[22:24:26.039,978] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.039,978] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.039,978] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,039] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,039] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,039] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,039] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,069] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,069] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,069] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,069] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,100] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,100] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,130] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,130] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,130] <dbg> zmk: split_central_notify_func: data: 0
+[22:24:26.040,252] <dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 33
+[22:24:26.040,283] <dbg> zmk: position_state_changed_listener: 33 bubble (no undecided hold_tap active)
+[22:24:26.040,344] <dbg> zmk: zmk_keymap_apply_position_state: layer: 1 position: 33, binding name: transparent
+[22:24:26.040,405] <dbg> zmk: zmk_keymap_position_state_changed: behavior processing to continue to next layer
+[22:24:26.040,435] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 33, binding name: key_press
+[22:24:26.040,466] <dbg> zmk: on_keymap_binding_released: position 33 keycode 0x700E5
+[22:24:26.040,496] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0xE5 implicit_mods 0x00 explicit_mods 0x00
+[22:24:26.040,496] <dbg> zmk: zmk_hid_unregister_mod: Modifier 5 count: 0
+[22:24:26.040,496] <dbg> zmk: zmk_hid_unregister_mod: Modifier 5 released
+[22:24:26.040,496] <dbg> zmk: zmk_hid_unregister_mod: Modifiers set to 0x00
+[22:24:26.040,527] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[22:24:26.040,527] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[22:24:26.206,146] <dbg> zmk: kscan_direct_read: Sending event at 0,15 state off
+[22:24:26.206,329] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 15, position: 30, pressed: false
+[22:24:26.206,359] <dbg> zmk: position_state_changed_listener: 30 bubble (no undecided hold_tap active)
+[22:24:26.206,420] <dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 30, binding name: layer_tap
+[22:24:26.206,451] <dbg> zmk: mo_keymap_binding_released: position 30 layer 1
+[22:24:26.206,481] <dbg> zmk: set_layer_state: layer_changed: layer 1 state 0
+[22:24:26.206,512] <dbg> zmk: on_hold_tap_binding_released: 30 cleaning up hold-tap
+[22:24:36.420,013] <dbg> zmk: vddh_sample_fetch: ADC raw 3018 ~ 4420 mV => 100%

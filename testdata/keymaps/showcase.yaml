@@ -1,0 +1,26 @@
+layout:
+  qmk_keyboard: corne_rotated
+  qmk_layout: LAYOUT_split_3x5_3
+layers:
+  Base:
+    - [Q, W, F, P, B, J, L, U, Y, "'"]
+    - [{h: Ctrl, t: A}, {h: Gui, t: R}, {h: Alt, t: S}, {h: Shift, t: T}, G, M, {h: Shift, t: N}, {h: Alt, t: E}, {h: Gui, t: I}, {h: Ctrl, t: O}]
+    - [Z, X, C, D, V, K, H, {t: ',', s: '<'}, {t: ., s: '>'}, {t: /, s: '?'}]
+    - {h: Gui,   t: $$mdi:keyboard-tab$$, type: ghost}
+    - {h: Ctrl,  t: $$mdi:keyboard-esc$$}
+    - {h: NAV,   t: $$mdi:backspace-outline$$}
+    - {h: SYM,   t: $$mdi:keyboard-space$$}
+    - {h: Shift, t: $$mdi:keyboard-return$$}
+    - {h: Alt,   t: $$mdi:backspace-reverse-outline$$, type: ghost}
+combos:
+  - {p: [0, 10, 20], k: RST, a: left}
+  - {p: [4, 5], k: BOOT, a: top}
+  - {p: [13, 16], k: Caps Wrd, a: top}
+  - {p: [27, 29], k: 😬, a: bottom}
+  - {p: [12, 13], k: '('}
+  - {p: [16, 17], k: ')'}
+  - {p: [11, 12], k: '['}
+  - {p: [17, 18], k: ']'}
+  - {p: [14, 24], k: $$mdi:play-pause$$}
+draw_config:
+  glyph_tap_size: 18
