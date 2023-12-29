@@ -3,11 +3,10 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	color2 "image/color"
+	"image/color"
 	"log"
 	"sort"
-	log_parser "zmk-heatmap/pkg/collector"
-	"zmk-heatmap/pkg/heatmap"
+	heatmappkg "zmk-heatmap/pkg/heatmap"
 )
 
 var inputParam string
@@ -20,25 +19,29 @@ var generateCmd = &cobra.Command{
 		// Remove the timestamp from the log messages
 		log.SetFlags(log.Flags() &^ (log.Ldate | log.Ltime))
 
-		p, err := log_parser.LoadParser(inputParam)
+		heatmap, err := heatmappkg.Load(inputParam)
 		if err != nil {
 			log.Fatalln("Cannot read heatmap:", err)
 		}
 
-		sort.Slice(p.KeyPresses, func(i, j int) bool { return p.KeyPresses[i].Count < p.KeyPresses[j].Count })
-		maxPress := p.KeyPresses[len(p.KeyPresses)-1].Count
-		sort.Slice(p.ComboPresses, func(i, j int) bool { return p.ComboPresses[i].Count < p.ComboPresses[j].Count })
-		maxCombo := p.ComboPresses[len(p.ComboPresses)-1].Count
+		sort.Slice(heatmap.KeyPresses, func(i, j int) bool {
+			return heatmap.KeyPresses[i].GetTotalPressCounts() < heatmap.KeyPresses[j].GetTotalPressCounts()
+		})
+		maxPress := heatmap.KeyPresses[len(heatmap.KeyPresses)-1].GetTotalPressCounts()
+		sort.Slice(heatmap.ComboPresses, func(i, j int) bool {
+			return heatmap.ComboPresses[i].GetTotalPressCounts() < heatmap.ComboPresses[j].GetTotalPressCounts()
+		})
+		maxCombo := heatmap.ComboPresses[len(heatmap.ComboPresses)-1].GetTotalPressCounts()
 
 		max := maxPress
 		if maxCombo > max {
 			max = maxCombo
 		}
 
-		for _, press := range p.KeyPresses {
-			perc := (float32(press.Count) / float32(max))
+		for _, press := range heatmap.KeyPresses {
+			perc := (float32(press.GetTotalPressCounts()) / float32(max))
 			luminance := uint8(255 * perc)
-			color := heatmap.RgbaToRgb(color2.RGBA{R: 255, G: 0, B: 0, A: luminance}, heatmap.RGB{R: 255, G: 255, B: 255})
+			color := heatmappkg.RgbaToRgb(color.RGBA{R: 255, G: 0, B: 0, A: luminance}, heatmappkg.RGB{R: 255, G: 255, B: 255})
 
 			/*
 					as an alternative you can do this, which draws a border around the text, this is useful when you want to
@@ -53,11 +56,11 @@ var generateCmd = &cobra.Command{
 			fmt.Printf("svg > g:nth-of-type(%d) .keypos-%d rect { fill: #%02X%02X%02X; }\n", press.Layer+1, press.Position, color.R, color.G, color.B)
 		}
 
-		for _, press := range p.ComboPresses {
-			perc := (float32(press.Count) / float32(max))
+		for _, press := range heatmap.ComboPresses {
+			perc := (float32(press.GetTotalPressCounts()) / float32(max))
 			luminance := uint8(255 * perc)
-			color := heatmap.RgbaToRgb(color2.RGBA{R: 255, G: 0, B: 0, A: luminance}, heatmap.RGB{R: 255, G: 255, B: 255})
-			fmt.Printf(".combopos-%d rect { stroke: #c9cccf; stroke-width: 1; fill: #%02X%02X%02X; }\n", press.Number-p.KeyMap.NumberOfKeys, color.R, color.G, color.B)
+			color := heatmappkg.RgbaToRgb(color.RGBA{R: 255, G: 0, B: 0, A: luminance}, heatmappkg.RGB{R: 255, G: 255, B: 255})
+			fmt.Printf(".combopos-%d rect { stroke: #c9cccf; stroke-width: 1; fill: #%02X%02X%02X; }\n", press.Number, color.R, color.G, color.B)
 		}
 	},
 }

@@ -16,7 +16,7 @@ var rootCmd = &cobra.Command{
 	Long: `A heatmap generator for ZMK Keyboards.
 
 Generating a heatmap is done in two steps:
-1) Collect your keystrokes: this is the process of listening to all of your keystrokes and
+1) Process your keystrokes: this is the process of listening to all of your keystrokes and
    keeping of the amount of times each key is pressed and storing this in a file.
    Run the command as:
      $ zmk-heatmap collect -k /dev/tty.usbmodem142101

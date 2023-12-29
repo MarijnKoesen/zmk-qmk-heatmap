@@ -242,13 +242,15 @@ const (
 	KC_RGUI   // E7
 )
 
-var Modifiers = map[string]KeyCode{
-	"KC_LCTRL": KC_LCTRL, // E0
-	//KC_LSHIFT, // E1
-	//KC_LALT,   // E2
-	//KC_LGUI ,  // E3
-	//KC_RCTRL,  // E4
-	//KC_RSHIFT, // E5
-	//KC_RALT,   // E6
-	//KC_RGUI,   // E7
-}
+type Modifier int
+
+const (
+	ModifierLeftControl  Modifier = 0x01
+	ModifierLeftShift             = 0x02
+	ModifierLeftAlt               = 0x04
+	ModifierLeftMeta              = 0x08
+	ModifierRightControl          = 0x10
+	ModifierRightShift            = 0x20
+	ModifierRightAlt              = 0x40
+	ModifierRightMeta             = 0x80
+)

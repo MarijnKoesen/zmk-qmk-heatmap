@@ -6,12 +6,11 @@ import (
 	"log"
 	"os"
 	"testing"
+	. "zmk-heatmap/pkg/heatmap"
 	"zmk-heatmap/pkg/keymap"
 )
 
-type Comparer interface {
-	Compare(b ComboPress) int
-}
+const zmkTestKeyMapNumberOfKeys int = 34
 
 var countTests = []struct {
 	filename       string
@@ -22,7 +21,7 @@ var countTests = []struct {
 		// primary Layer, simple key press on left side
 		"testdata/zmk/q.log",
 		[]KeyPress{
-			{Layer: 0, Position: 0, Count: 1},
+			{Layer: 0, Position: 0, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -30,7 +29,7 @@ var countTests = []struct {
 		// primary Layer, simple key press on left side
 		"testdata/zmk/w.log",
 		[]KeyPress{
-			{Layer: 0, Position: 1, Count: 1},
+			{Layer: 0, Position: 1, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -38,7 +37,7 @@ var countTests = []struct {
 		// primary Layer, simple key press on right side
 		"testdata/zmk/l.log",
 		[]KeyPress{
-			{Layer: 0, Position: 6, Count: 1},
+			{Layer: 0, Position: 6, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -46,8 +45,8 @@ var countTests = []struct {
 		// secondary Layer on left side
 		"testdata/zmk/semicolon.log",
 		[]KeyPress{
-			{Layer: 0, Position: 30, Count: 1},
-			{Layer: 1, Position: 13, Count: 1},
+			{Layer: 1, Position: 13, Taps: 1},
+			{Layer: 0, Position: 30, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -55,8 +54,8 @@ var countTests = []struct {
 		// secondary Layer on left side
 		"testdata/zmk/parentheses-close.log",
 		[]KeyPress{
-			{Layer: 0, Position: 30, Count: 1},
-			{Layer: 1, Position: 11, Count: 1},
+			{Layer: 1, Position: 11, Taps: 1},
+			{Layer: 0, Position: 30, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -64,8 +63,8 @@ var countTests = []struct {
 		// secondary Layer on right side
 		"testdata/zmk/1.log",
 		[]KeyPress{
-			{Layer: 0, Position: 30, Count: 1},
-			{Layer: 1, Position: 26, Count: 1},
+			{Layer: 1, Position: 26, Taps: 1},
+			{Layer: 0, Position: 30, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -73,8 +72,8 @@ var countTests = []struct {
 		// home row mode left side
 		"testdata/zmk/ctrl-c.log",
 		[]KeyPress{
-			{Layer: 0, Position: 17, Count: 1},
-			{Layer: 0, Position: 22, Count: 1},
+			{Layer: 0, Position: 22, Taps: 1},
+			{Layer: 0, Position: 17, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -82,8 +81,8 @@ var countTests = []struct {
 		// home row mode left side
 		"testdata/zmk/command-t.log",
 		[]KeyPress{
-			{Layer: 0, Position: 10, Count: 1},
-			{Layer: 0, Position: 13, Count: 1},
+			{Layer: 0, Position: 13, Taps: 1},
+			{Layer: 0, Position: 10, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -91,8 +90,8 @@ var countTests = []struct {
 		// home row mode left + right side
 		"testdata/zmk/command-a.log",
 		[]KeyPress{
-			{Layer: 0, Position: 19, Count: 1},
-			{Layer: 0, Position: 10, Count: 1},
+			{Layer: 0, Position: 10, Taps: 1},
+			{Layer: 0, Position: 19, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -100,11 +99,11 @@ var countTests = []struct {
 		// multiple presses
 		"testdata/zmk/multiple-presses.log",
 		[]KeyPress{
-			{Layer: 0, Position: 12, Count: 3},
-			{Layer: 0, Position: 13, Count: 1},
-			{Layer: 0, Position: 6, Count: 2},
-			{Layer: 0, Position: 30, Count: 1},
-			{Layer: 1, Position: 7, Count: 3},
+			{Layer: 0, Position: 12, Taps: 3},
+			{Layer: 0, Position: 13, Taps: 1},
+			{Layer: 0, Position: 6, Taps: 2},
+			{Layer: 1, Position: 7, Taps: 3},
+			{Layer: 0, Position: 30, Taps: 1},
 		},
 		[]ComboPress{},
 	},
@@ -112,50 +111,45 @@ var countTests = []struct {
 		// combo-test, once L, once N, then combo of L+N=+
 		"testdata/zmk/combo-test-on-right-side.log",
 		[]KeyPress{
-			{Layer: 0, Position: 6, Count: 2},
-			{Layer: 0, Position: 16, Count: 2},
+			{Layer: 0, Position: 6, Taps: 1},
+			{Layer: 0, Position: 16, Taps: 1},
 		},
 		[]ComboPress{
-			{
-				Key:    "+",
-				Number: 61,
-				Count:  2,
-			},
+			{Number: 61 - zmkTestKeyMapNumberOfKeys, Taps: 1},
 		},
 	},
 	{
 		// combo-test, once B, once G, then combo of B+G=%
 		"testdata/zmk/combo-test-on-left-side.log",
 		[]KeyPress{
-			{Layer: 0, Position: 4, Count: 1},
-			{Layer: 0, Position: 14, Count: 1},
+			{Layer: 0, Position: 4, Taps: 1},
+			{Layer: 0, Position: 14, Taps: 1},
 		},
 		[]ComboPress{
-			{
-				Key:    "%",
-				Number: 55,
-				Count:  1,
-			},
+			{Number: 55 - zmkTestKeyMapNumberOfKeys, Taps: 1},
 		},
+	},
+	{
+		"testdata/zmk/AAAaaAaaaa.log",
+		[]KeyPress{
+			{Layer: 0, Position: 10, Taps: 6, Shifts: 4}, // A
+			{Layer: 0, Position: 33, Taps: 0, Shifts: 2}, // shift
+		},
+		[]ComboPress{},
 	},
 	{
 		// combo first (, then <
 		"testdata/zmk/combo_without_hold_then_with.log",
 		[]KeyPress{
-			{Layer: 0, Position: 33, Count: 1},
+			{Layer: 0, Position: 33, Shifts: 1}, // shift
 		},
-		// TODO: this is wrong, we first press ( and then <
 		[]ComboPress{
-			{
-				Key:    "(",
-				Number: 44,
-				Count:  2,
-			},
+			{Number: 44 - zmkTestKeyMapNumberOfKeys, Taps: 1, Shifts: 1},
 		},
 	},
 }
 
-func parseTestFile(filename string) Parser {
+func parseTestFile(filename string) (heatmap *Heatmap) {
 	file, err := os.Open("../../" + filename)
 
 	if err != nil {
@@ -167,23 +161,29 @@ func parseTestFile(filename string) Parser {
 		log.Fatal(err)
 	}
 
-	parser := *NewParser(keyMap)
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		parser.Parse(scanner.Text())
+	parser := NewZmkLogParser(keyMap)
+	heatmap = &Heatmap{
+		KeyPresses:   []KeyPress{},
+		ComboPresses: []ComboPress{},
 	}
 
-	if err := scanner.Err(); err != nil {
+	logScanner := bufio.NewScanner(file)
+	for logScanner.Scan() {
+		parser.Parse(logScanner.Text(), heatmap)
+	}
+
+	if err := logScanner.Err(); err != nil {
 		log.Fatal(err)
 	}
 
-	return parser
+	return heatmap
 }
 
 func TestParser(t *testing.T) {
 	for _, test := range countTests {
-		assert.Equal(t, test.expectedKeys, parseTestFile(test.filename).KeyPresses)
-		assert.Equal(t, test.expectedCombos, parseTestFile(test.filename).ComboPresses)
+		heatmap := parseTestFile(test.filename)
+
+		assert.Equal(t, test.expectedKeys, heatmap.KeyPresses)
+		assert.Equal(t, test.expectedCombos, heatmap.ComboPresses)
 	}
 }

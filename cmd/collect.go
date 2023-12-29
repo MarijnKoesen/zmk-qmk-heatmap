@@ -2,19 +2,17 @@ package cmd
 
 import (
 	"bufio"
-	"encoding/json"
 	"errors"
-	"fmt"
 	"github.com/spf13/cobra"
+	"github.com/tarm/goserial"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
 	log_parser "zmk-heatmap/pkg/collector"
+	"zmk-heatmap/pkg/heatmap"
 	"zmk-heatmap/pkg/keymap"
-
-	"github.com/tarm/goserial"
 )
 
 var keyboardParam string
@@ -22,11 +20,11 @@ var outputParam string
 
 var collectCmd = &cobra.Command{
 	Use:   "collect",
-	Short: "Collect the keystrokes from your keyboard",
-	Long:  "Collect the keystrokes from your keyboard and save the aggregated result in a file that can be used to generate the heatmap",
+	Short: "Process the keystrokes from your keyboard",
+	Long:  "Process the keystrokes from your keyboard and save the aggregated result in a file that can be used to generate the heatmap",
 	Run: func(cmd *cobra.Command, args []string) {
 		// Remove the timestamp from the log messages
-		log.SetFlags(log.Flags() &^ (log.Ldate | log.Ltime))
+		log.SetFlags(log.Flags() &^ (log.Ldate))
 
 		keyboardPath, err := findKeyboard(keyboardParam)
 		if err != nil {
@@ -38,7 +36,7 @@ var collectCmd = &cobra.Command{
 			log.Fatalln("Cannot connect to the keyboardPath:", err)
 		}
 
-		fmt.Println("Connecting to the keyboardPath at:", keyboardPath)
+		log.Println("Connecting to the keyboardPath at:", keyboardPath)
 
 		c := &serial.Config{Name: keyboardPath, Baud: 115200}
 		s, err := serial.OpenPort(c)
@@ -46,25 +44,44 @@ var collectCmd = &cobra.Command{
 			log.Fatalln(err)
 		}
 
-		p, err := log_parser.LoadParser(outputParam)
+		heatmap, err := getKeymap(outputParam)
 		if err != nil {
-			keymapp, _ := keymap.Load("testdata/keymap.yaml")
-			p = log_parser.NewParser(keymapp)
+			log.Fatalln(err)
 		}
+		if heatmap.GetPressCount() > 0 {
+			log.Println("Loaded", outputParam, "with", heatmap.GetPressCount(), "key presses")
+		}
+
+		keymapFile := "testdata/zmk/keymap.yaml"
+		keymapp, err := keymap.Load(keymapFile)
+		if err != nil {
+			log.Fatalln("Cannot load the keymap:", err)
+		}
+		log.Println("Loading keymap", keymapFile)
+
+		parser := log_parser.NewZmkLogParser(keymapp)
 
 		// Store the collected keystrokes every 5 seconds
 		ticker := time.NewTicker(5 * time.Second)
-		go storeKeyStrokes(ticker, p)
+		go storeKeyStrokes(ticker, heatmap)
 
 		// Start the key scanner
 		scanner := bufio.NewScanner(s)
 		for scanner.Scan() {
-			_ = p.Parse(scanner.Text())
+			_ = parser.Parse(scanner.Text(), heatmap)
 		}
 		if scanner.Err() != nil {
 			log.Fatal(err)
 		}
 	},
+}
+
+func getKeymap(heatmapFile string) (heatmap_ *heatmap.Heatmap, err error) {
+	if _, err := os.Stat(heatmapFile); os.IsNotExist(err) {
+		return heatmap.New(), nil
+	}
+
+	return heatmap.Load(heatmapFile)
 }
 
 func init() {
@@ -93,15 +110,12 @@ func findKeyboard(keyboardPath string) (k string, err error) {
 	return matches[0], nil
 }
 
-func storeKeyStrokes(ticker *time.Ticker, parser *log_parser.Parser) {
+func storeKeyStrokes(ticker *time.Ticker, heatmap *heatmap.Heatmap) {
 	for {
 		select {
 		case <-ticker.C:
-			json, err := json.Marshal(parser)
-			if err != nil {
-				fmt.Println(err)
-			}
-			_ = os.WriteFile(outputParam, json, 0644)
+			log.Println("Collected", heatmap.GetPressCount(), "key presses")
+			heatmap.Save(outputParam)
 
 			//case <- quit:
 			//	ticker.Stop()

@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"bufio"
-	"fmt"
 	"github.com/spf13/cobra"
 	"github.com/tarm/goserial"
 	"log"
@@ -27,7 +26,7 @@ var logCmd = &cobra.Command{
 			log.Fatalln("Cannot connect to the keyboardPath:", err)
 		}
 
-		fmt.Println("Connecting to the keyboardPath at:", keyboardPath)
+		log.Println("Connecting to the keyboardPath at:", keyboardPath)
 
 		c := &serial.Config{Name: keyboardPath, Baud: 115200}
 		s, err := serial.OpenPort(c)
@@ -37,7 +36,7 @@ var logCmd = &cobra.Command{
 
 		scanner := bufio.NewScanner(s)
 		for scanner.Scan() {
-			fmt.Println(scanner.Text())
+			log.Println(scanner.Text())
 		}
 		if scanner.Err() != nil {
 			log.Fatal(err)
