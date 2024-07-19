@@ -17,7 +17,9 @@ var rootCmd = &cobra.Command{
 
 Generating a heatmap is done in two steps:
 1) Process your keystrokes: this is the process of listening to all of your keystrokes and
-   keeping of the amount of times each key is pressed and storing this in a file.
+   collection the amount each key is pressed and storing this in a file. Since we only store
+   the amount each key is pressed it should be safe and no passwords or any other sensitive
+   information will be stored or derivable.
    Run the command as:
      $ zmk-heatmap collect -k /dev/tty.usbmodem142101
 2) Generating the heatmap: taking all the keystrokes into account the heatmap can now be
