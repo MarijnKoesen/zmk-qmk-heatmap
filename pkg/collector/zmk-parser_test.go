@@ -19,7 +19,7 @@ var countTests = []struct {
 }{
 	{
 		// primary Layer, simple key press on left side
-		"testdata/zmk/q.log",
+		"testdata/zmk/logs/ferris-sweep/q.log",
 		[]KeyPress{
 			{Layer: 0, Position: 0, Taps: 1},
 		},
@@ -27,7 +27,7 @@ var countTests = []struct {
 	},
 	{
 		// primary Layer, simple key press on left side
-		"testdata/zmk/w.log",
+		"testdata/zmk/logs/ferris-sweep/w.log",
 		[]KeyPress{
 			{Layer: 0, Position: 1, Taps: 1},
 		},
@@ -35,7 +35,7 @@ var countTests = []struct {
 	},
 	{
 		// primary Layer, simple key press on right side
-		"testdata/zmk/l.log",
+		"testdata/zmk/logs/ferris-sweep/l.log",
 		[]KeyPress{
 			{Layer: 0, Position: 6, Taps: 1},
 		},
@@ -43,7 +43,7 @@ var countTests = []struct {
 	},
 	{
 		// secondary Layer on left side
-		"testdata/zmk/semicolon.log",
+		"testdata/zmk/logs/ferris-sweep/semicolon.log",
 		[]KeyPress{
 			{Layer: 1, Position: 13, Taps: 1},
 			{Layer: 0, Position: 30, Taps: 1},
@@ -52,7 +52,7 @@ var countTests = []struct {
 	},
 	{
 		// secondary Layer on left side
-		"testdata/zmk/parentheses-close.log",
+		"testdata/zmk/logs/ferris-sweep/parentheses-close.log",
 		[]KeyPress{
 			{Layer: 1, Position: 11, Taps: 1},
 			{Layer: 0, Position: 30, Taps: 1},
@@ -61,7 +61,7 @@ var countTests = []struct {
 	},
 	{
 		// secondary Layer on right side
-		"testdata/zmk/1.log",
+		"testdata/zmk/logs/ferris-sweep/1.log",
 		[]KeyPress{
 			{Layer: 1, Position: 26, Taps: 1},
 			{Layer: 0, Position: 30, Taps: 1},
@@ -70,7 +70,7 @@ var countTests = []struct {
 	},
 	{
 		// home row mod left side
-		"testdata/zmk/ctrl-c.log",
+		"testdata/zmk/logs/ferris-sweep/ctrl-c.log",
 		[]KeyPress{
 			{Layer: 0, Position: 22, Taps: 1},
 			{Layer: 0, Position: 17, Taps: 1},
@@ -79,7 +79,7 @@ var countTests = []struct {
 	},
 	{
 		// home row mod left side
-		"testdata/zmk/command-t.log",
+		"testdata/zmk/logs/ferris-sweep/command-t.log",
 		[]KeyPress{
 			{Layer: 0, Position: 13, Taps: 1},
 			{Layer: 0, Position: 10, Taps: 1},
@@ -88,7 +88,7 @@ var countTests = []struct {
 	},
 	{
 		// home row mod left + right side
-		"testdata/zmk/command-a.log",
+		"testdata/zmk/logs/ferris-sweep/command-a.log",
 		[]KeyPress{
 			{Layer: 0, Position: 10, Taps: 1},
 			{Layer: 0, Position: 19, Taps: 1},
@@ -97,7 +97,7 @@ var countTests = []struct {
 	},
 	{
 		// multiple presses
-		"testdata/zmk/multiple-presses.log",
+		"testdata/zmk/logs/ferris-sweep/multiple-presses.log",
 		[]KeyPress{
 			{Layer: 0, Position: 12, Taps: 3},
 			{Layer: 0, Position: 13, Taps: 1},
@@ -109,7 +109,7 @@ var countTests = []struct {
 	},
 	{
 		// combo-test, once L, once N, then combo of L+N=+
-		"testdata/zmk/combo-test-on-right-side.log",
+		"testdata/zmk/logs/ferris-sweep/combo-test-on-right-side.log",
 		[]KeyPress{
 			{Layer: 0, Position: 6, Taps: 1},
 			{Layer: 0, Position: 16, Taps: 1},
@@ -120,7 +120,7 @@ var countTests = []struct {
 	},
 	{
 		// combo-test, once B, once G, then combo of B+G=%
-		"testdata/zmk/combo-test-on-left-side.log",
+		"testdata/zmk/logs/ferris-sweep/combo-test-on-left-side.log",
 		[]KeyPress{
 			{Layer: 0, Position: 4, Taps: 1},
 			{Layer: 0, Position: 14, Taps: 1},
@@ -130,7 +130,7 @@ var countTests = []struct {
 		},
 	},
 	{
-		"testdata/zmk/AAAaaAaaaa.log",
+		"testdata/zmk/logs/ferris-sweep/AAAaaAaaaa.log",
 		[]KeyPress{
 			{Layer: 0, Position: 10, Taps: 6, Shifts: 4}, // A
 			{Layer: 0, Position: 33, Taps: 0, Shifts: 2}, // shift
@@ -139,7 +139,7 @@ var countTests = []struct {
 	},
 	{
 		// combo first (, then <
-		"testdata/zmk/combo_without_hold_then_with.log",
+		"testdata/zmk/logs/ferris-sweep/combo_without_hold_then_with.log",
 		[]KeyPress{
 			{Layer: 0, Position: 33, Shifts: 1}, // shift
 		},
@@ -156,7 +156,7 @@ func parseTestFile(filename string) (heatmap *Heatmap) {
 		log.Fatal(err)
 	}
 
-	keyMap, err := keymap.Load("../../testdata/zmk/keymap.yaml")
+	keyMap, err := keymap.Load("../../testdata/zmk/logs/ferris-sweep/keymap.yaml")
 	if err != nil {
 		log.Fatal(err)
 	}
