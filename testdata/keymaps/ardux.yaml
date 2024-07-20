@@ -63,16 +63,16 @@ combos:
   - {p: [6, 5],       k: '0',  l: [Number]}
   - {p: [7, 2],       k: BSPC, l: [Number, Symbol, Paren, Nav, BT, Custom], d: true}
   - {p: [7, 6, 5, 4], k: SPC,  l: [Number, Symbol, Paren, Nav, BT, Custom], a: bottom}
-# - {p: [3, 5],       k: ',',  l: [ARDUX]}
-# - {p: [3, 4],       k: /,    l: [ARDUX]}
-# - {p: [3, 2, 4],    k: ESC}
-# - {p: [2, 7, 5],    k: Nav}
-# - {p: [3, 6, 5],    k: "'", l: [ARDUX]}
-# - {p: [3, 2, 1, 4], k: TAB}
-# - {p: [7, 2, 1, 0], k: {t: LSHFT, h: sticky}}
-# - {p: [3, 7, 0, 4], k: BT}
-# - {p: [2, 6, 1, 5], k: BT CLR}
-# - {p: [4, 5, 6, 3], k: CAPS, l: [ARDUX]}
-# - {p: [7, 0],       k: {t: LCTRL, h: sticky}}
-# - {p: [6, 0],       k: {t: LGUI, h: sticky}}
-# - {p: [5, 0],       k: {t: LALT, h: sticky}}
+  - {p: [3, 5],       k: ',',  l: [ARDUX]}
+  - {p: [3, 4],       k: /,    l: [ARDUX]}
+  - {p: [3, 2, 4],    k: ESC}
+  - {p: [2, 7, 5],    k: Nav}
+  - {p: [3, 6, 5],    k: "'", l: [ARDUX]}
+  - {p: [3, 2, 1, 4], k: TAB}
+  - {p: [7, 2, 1, 0], k: {t: LSHFT, h: sticky}}
+  - {p: [3, 7, 0, 4], k: BT}
+  - {p: [2, 6, 1, 5], k: BT CLR}
+  - {p: [4, 5, 6, 3], k: CAPS, l: [ARDUX]}
+  - {p: [7, 0],       k: {t: LCTRL, h: sticky}}
+  - {p: [6, 0],       k: {t: LGUI, h: sticky}}
+  - {p: [5, 0],       k: {t: LALT, h: sticky}}

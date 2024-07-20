@@ -1,88 +1,54 @@
 package keymap
 
-import (
-	"gopkg.in/yaml.v3"
-	"os"
-)
+type Keymap struct {
+	Layers []Layer
+	Combos []Combo
+}
 
-// t h type || string
+type Layer struct {
+	Name string
+	Rows []Row
+}
+
+type Row struct {
+	Keys []Key
+}
+
+type Key struct {
+	Tap     string
+	Hold    string
+	Shifted string
+}
 
 type Combo struct {
-	Keys   []int    `yaml:"p"`
-	Key    string   `yaml:"k"`
-	Layers []string `yaml:"l"`
+	Keys   []int
+	Layers []string
+	Key    Key
 }
 
-type Keymap struct {
-	NumberOfKeys int
-	Combos       []Combo
+func New() *Keymap {
+	return &Keymap{
+		Layers: make([]Layer, 0),
+		Combos: make([]Combo, 0),
+	}
 }
 
-func Load(filename string) (keymap Keymap, err error) {
-	keymap = Keymap{Combos: []Combo{}}
-
-	obj := make(map[string]interface{})
-
-	yamlFile, err := os.ReadFile(filename)
-	if err != nil {
-		return
-	}
-	err = yaml.Unmarshal(yamlFile, obj)
-	if err != nil {
-		return
+func (k *Keymap) NumberOfKeys() int {
+	numberOfKeys := 0
+	if len(k.Layers) == 0 || len(k.Layers[0].Rows) == 0 {
+		return numberOfKeys
 	}
 
-	keymap.NumberOfKeys = countNumberOfKeysInLayers(obj["layers"].(map[string]interface{}))
-
-	combos, comboExists := obj["combos"].([]interface{})
-	if comboExists {
-		for _, combo := range combos {
-			combo2 := combo.(map[string]interface{})
-
-			c := Combo{
-				Keys:   convertSlice[int](combo2["p"].([]interface{})),
-				Key:    combo2["k"].(string),
-				Layers: []string{},
-			}
-
-			if comboLayers, ok := combo2["l"]; ok {
-				c.Layers = convertSlice[string](comboLayers.([]interface{}))
-			}
-
-			keymap.Combos = append(keymap.Combos, c)
-		}
+	for _, row := range k.Layers[0].Rows {
+		numberOfKeys += len(row.Keys)
 	}
 
-	return
+	return numberOfKeys
 }
 
-func countNumberOfKeysInLayers(layers map[string]interface{}) (numberOfKeys int) {
-	for _, row := range layers[keys(layers)[0]].([]interface{}) {
-		switch row.(type) {
-		case []interface{}:
-			numberOfKeys += len(row.([]interface{}))
-			break
-		case interface{}:
-			numberOfKeys++
-			break
-		}
-	}
-
-	return
-}
-
-func convertSlice[E any](in []any) (out []E) {
-	out = make([]E, 0, len(in))
-	for _, v := range in {
-		out = append(out, v.(E))
-	}
-	return
-}
-
-func keys(someMap map[string]interface{}) (keys []string) {
-	for key, _ := range someMap {
-		keys = append(keys, key)
-	}
-
-	return
+func (k *Keymap) AddLayer(name string, rows []Row) {
+	k.Layers = append(k.Layers, Layer{
+		Name: name,
+		Rows: rows,
+	})
 }
