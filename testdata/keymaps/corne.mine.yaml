@@ -1,0 +1,298 @@
+layout: {qmk_keyboard: corne_rotated, qmk_layout: LAYOUT_split_3x6_3}
+layers:
+  default:
+  - [TAB, Q, W, F, P, B, J, L, U, Y, '''', Sft+Ctl+ LALT]
+  - - BSPC
+    - {t: A, h: LGUI}
+    - {t: R, h: LALT}
+    - {t: S, h: LCTRL}
+    - {t: T, h: LSHFT}
+    - G
+    - M
+    - {t: N, h: RSHFT}
+    - {t: E, h: RCTRL}
+    - {t: I, h: RALT}
+    - {t: O, h: RGUI}
+    - '&key_repeat'
+  - ['', Z, X, C, D, V, K, H, ',', ., /, '']
+  - - LGUI
+    - {t: SPACE, h: symbol}
+    - {t: ENTER, h: nav}
+    - {t: SPACE, h: left}
+    - RSHFT
+    - ''
+  symbol:
+  - - TAB
+    - '&caps_word'
+    - {t: ▽, type: trans}
+    - '['
+    - ']'
+    - {t: BSPC, h: Alt+ BSPC}
+    - '-'
+    - '7'
+    - '8'
+    - '9'
+    - +
+    - Sft+Ctl+ LALT
+  - - BSPC
+    - (
+    - )
+    - ''''
+    - ;
+    - {t: DEL, h: Ctl+ DEL}
+    - /
+    - '4'
+    - '5'
+    - '6'
+    - '*'
+    - '&key_repeat'
+  - - ''
+    - '-'
+    - '='
+    - /
+    - \
+    - {t: ▽, type: trans}
+    - '0'
+    - '1'
+    - '2'
+    - '3'
+    - .
+    - ''
+  - - LGUI
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - ''
+  nav:
+  - - TAB
+    - ESC
+    - {t: ▽, type: trans}
+    - DOWN
+    - UP
+    - {t: ▽, type: trans}
+    - PG UP
+    - {t: BSPC, h: Alt+ BSPC}
+    - {t: UP, h: Ctl+ HOME}
+    - {t: DEL, h: Ctl+ DEL}
+    - {t: ▽, type: trans}
+    - Sft+Ctl+ LALT
+  - - BSPC
+    - Gui+ [
+    - Gui+ ]
+    - Gui+Sft+ [
+    - Gui+Sft+ ]
+    - {t: ▽, type: trans}
+    - PG DN
+    - {t: LEFT, h: HOME}
+    - {t: DOWN, h: Ctl+ END}
+    - {t: RIGHT, h: END}
+    - RET
+    - '&key_repeat'
+  - - ''
+    - LGUI
+    - LSHFT
+    - '`'
+    - TAB
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '!'
+    - Q
+    - W
+    - ':'
+    - ''
+  - - LGUI
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - ''
+  left:
+  - - TAB
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - VOLUME UP
+    - F7
+    - F8
+    - F9
+    - F10
+    - Sft+Ctl+ LALT
+  - - BSPC
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - VOLUME DOWN
+    - F4
+    - F5
+    - F6
+    - F11
+    - '&key_repeat'
+  - - ''
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - F1
+    - F2
+    - F3
+    - F12
+    - ''
+  - - LGUI
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - ''
+  tri:
+  - - TAB
+    - Meh+ Q
+    - Meh+ W
+    - Meh+ F
+    - Meh+ P
+    - Meh+ B
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '&sys_reset'
+    - Sft+Ctl+ LALT
+  - - BSPC
+    - Meh+ A
+    - Meh+ R
+    - Meh+ S
+    - Meh+ T
+    - Meh+ T
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - '&bootloader'
+    - '&key_repeat'
+  - - ''
+    - Meh+ Z
+    - Meh+ X
+    - Meh+ C
+    - Meh+ D
+    - Meh+ V
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - ''
+  - - LGUI
+    - {type: held}
+    - {type: held}
+    - {t: ▽, type: trans}
+    - {t: ▽, type: trans}
+    - ''
+combos:
+- p: [2, 3]
+  k: ESC
+  l: [default, nav, symbol]
+- p: [1, 13, 25]
+  k: '&bootloader'
+  l: [nav]
+- p: [3, 4]
+  k: RETURN
+  l: [default, nav, symbol]
+- p: [14, 15]
+  k: {t: TAB, h: Alt+ LCTRL}
+  l: [default, nav, symbol]
+- p: [15, 16]
+  k: {t: '&key_repeat', h: Sft+ LCTRL}
+  l: [default, nav, symbol]
+- p: [26, 28]
+  k: Ctl+ X
+  l: [default, nav, symbol]
+- p: [26, 27]
+  k: Ctl+ INS
+  l: [default, nav, symbol]
+- p: [27, 28]
+  k: Sft+ INS
+  l: [default, nav, symbol]
+- p: [7, 8]
+  k: BSPC
+  l: [default, nav, symbol]
+- p: [8, 9]
+  k: DEL
+  l: [default, nav, symbol]
+- p: [19, 20]
+  k: {t: (, h: Sft+ LCTRL, s: <}
+  l: [default, symbol]
+- p: [20, 21]
+  k: {t: ), h: Alt+ LCTRL, s: '>'}
+  l: [default, symbol]
+- p: [19, 20]
+  k: <
+  l: [nav]
+- p: [20, 21]
+  k: '>'
+  l: [nav]
+- p: [31, 32]
+  k: '['
+  l: [default, symbol]
+- p: [32, 33]
+  k: ']'
+  l: [default, symbol]
+- p: [31, 32]
+  k: '{'
+  l: [nav]
+- p: [32, 33]
+  k: '}'
+  l: [nav]
+- p: [2, 14]
+  k: '@'
+  l: [default, nav, symbol]
+- p: [3, 15]
+  k: '#'
+  l: [default, nav, symbol]
+- p: [4, 16]
+  k: $
+  l: [default, nav, symbol]
+- p: [5, 17]
+  k: '%'
+  l: [default, nav, symbol]
+- p: [14, 26]
+  k: '`'
+  l: [default, nav, symbol]
+- p: [15, 27]
+  k: \
+  l: [default, nav, symbol]
+- p: [16, 28]
+  k: '='
+  l: [default, nav, symbol]
+- p: [17, 29]
+  k: '~'
+  l: [default, nav, symbol]
+- p: [6, 18]
+  k: ^
+  l: [default, nav, symbol]
+- p: [7, 19]
+  k: +
+  l: [default, nav, symbol]
+- p: [8, 20]
+  k: '*'
+  l: [default, nav, symbol]
+- p: [9, 21]
+  k: '&'
+  l: [default, nav, symbol]
+- p: [18, 30]
+  k: _
+  l: [default, nav, symbol]
+- p: [19, 31]
+  k: '-'
+  l: [default, nav, symbol]
+- p: [20, 32]
+  k: /
+  l: [default, nav, symbol]
+- p: [21, 33]
+  k: '|'
+  l: [default, nav, symbol]

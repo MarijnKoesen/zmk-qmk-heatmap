@@ -9,9 +9,10 @@ import (
 )
 
 type ZmkParser struct {
-	KeyMap      keymap.Keymap
-	pressed     map[string]bool
-	shiftIsDown bool
+	KeyMap               *keymap.Keymap
+	numberOfKeysInKeyMap int
+	pressed              map[string]bool
+	shiftIsDown          bool
 }
 
 func (p *ZmkParser) Parse(logLine string, heatmap *Heatmap) (err error) {
@@ -68,11 +69,11 @@ func (p *ZmkParser) Parse(logLine string, heatmap *Heatmap) (err error) {
 			return err
 		}
 
-		if virtualKeyNumber < p.KeyMap.NumberOfKeys {
+		if virtualKeyNumber < p.KeyMap.NumberOfKeys() {
 			break
 		}
 
-		heatmap.RegisterComboPress(virtualKeyNumber-p.KeyMap.NumberOfKeys, getPressType(p.shiftIsDown))
+		heatmap.RegisterComboPress(virtualKeyNumber-p.KeyMap.NumberOfKeys(), getPressType(p.shiftIsDown))
 
 		//fmt.Println(messageTokens)
 		// key := p.KeyMap.Combos[virtualKeyNumber-p.KeyMap.NumberOfKeys].Key
@@ -105,10 +106,11 @@ func (p ZmkParser) parseKeyPress(layerString string, positionString string) (lay
 	return
 }
 
-func NewZmkLogParser(keyMap keymap.Keymap) *ZmkParser {
+func NewZmkLogParser(keyMap *keymap.Keymap) *ZmkParser {
 	return &ZmkParser{
-		KeyMap:      keyMap,
-		pressed:     make(map[string]bool),
-		shiftIsDown: false,
+		KeyMap:               keyMap,
+		pressed:              make(map[string]bool),
+		shiftIsDown:          false,
+		numberOfKeysInKeyMap: keyMap.NumberOfKeys(),
 	}
 }

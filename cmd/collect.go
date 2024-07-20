@@ -15,8 +15,20 @@ import (
 	"zmk-heatmap/pkg/keymap"
 )
 
-var keyboardParam string
-var outputParam string
+var (
+	keyboardParam string
+	outputParam   string
+	keymapParam   string
+)
+
+func init() {
+	rootCmd.AddCommand(collectCmd)
+
+	collectCmd.Flags().StringVarP(&keyboardParam, "keyboard", "k", "auto", "e.g. /dev/tty.usbmodem144001")
+	collectCmd.Flags().StringVarP(&outputParam, "output", "o", "heatmap.json", "e.g. ~/heatmap.json")
+	collectCmd.Flags().StringVarP(&keymapParam, "keymap", "m", "keymap.yaml", "e.g. ~/keymap.yaml")
+	collectCmd.MarkFlagRequired("keymap")
+}
 
 var collectCmd = &cobra.Command{
 	Use:   "collect",
@@ -44,7 +56,7 @@ var collectCmd = &cobra.Command{
 			log.Fatalln(err)
 		}
 
-		heatmap, err := getKeymap(outputParam)
+		heatmap, err := loadHeatMap(outputParam)
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -52,7 +64,7 @@ var collectCmd = &cobra.Command{
 			log.Println("Loaded", outputParam, "with", heatmap.GetPressCount(), "key presses")
 		}
 
-		keymapFile := "testdata/zmk/keymap.yaml"
+		keymapFile := keymapParam
 		keymapp, err := keymap.Load(keymapFile)
 		if err != nil {
 			log.Fatalln("Cannot load the keymap:", err)
@@ -76,19 +88,12 @@ var collectCmd = &cobra.Command{
 	},
 }
 
-func getKeymap(heatmapFile string) (heatmap_ *heatmap.Heatmap, err error) {
+func loadHeatMap(heatmapFile string) (heatmap_ *heatmap.Heatmap, err error) {
 	if _, err := os.Stat(heatmapFile); os.IsNotExist(err) {
 		return heatmap.New(), nil
 	}
 
 	return heatmap.Load(heatmapFile)
-}
-
-func init() {
-	rootCmd.AddCommand(collectCmd)
-
-	collectCmd.Flags().StringVarP(&keyboardParam, "keyboard", "k", "auto", "e.g. /dev/tty.usbmodem144001")
-	collectCmd.Flags().StringVarP(&outputParam, "output", "o", "heatmap.json", "e.g. ~/heatmap.json")
 }
 
 // Scan /dev/tty* for possible keyboards and returns the path for the keyboard if one and only one is connected
