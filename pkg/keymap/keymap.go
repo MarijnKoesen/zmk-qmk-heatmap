@@ -1,17 +1,17 @@
 package keymap
 
 type Keymap struct {
-	Layers []Layer
-	Combos []Combo
+	Layers []*Layer
+	Combos []*Combo
 }
 
 type Layer struct {
 	Name string
-	Rows []Row
+	Rows []*Row
 }
 
 type Row struct {
-	Keys []Key
+	Keys []*Key
 }
 
 type Key struct {
@@ -23,13 +23,13 @@ type Key struct {
 type Combo struct {
 	Keys   []int
 	Layers []string
-	Key    Key
+	Key    *Key
 }
 
 func New() *Keymap {
 	return &Keymap{
-		Layers: make([]Layer, 0),
-		Combos: make([]Combo, 0),
+		Layers: make([]*Layer, 0),
+		Combos: make([]*Combo, 0),
 	}
 }
 
@@ -46,9 +46,16 @@ func (k *Keymap) NumberOfKeys() int {
 	return numberOfKeys
 }
 
-func (k *Keymap) AddLayer(name string, rows []Row) {
-	k.Layers = append(k.Layers, Layer{
+func (k *Keymap) AddLayer(name string, rows []*Row) *Layer {
+	layer := &Layer{
 		Name: name,
 		Rows: rows,
-	})
+	}
+	k.Layers = append(k.Layers, layer)
+
+	return layer
+}
+
+func (r *Row) AddKey(key *Key) {
+	r.Keys = append(r.Keys, key)
 }
