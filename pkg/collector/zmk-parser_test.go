@@ -69,7 +69,7 @@ var countTests = []struct {
 		[]ComboPress{},
 	},
 	{
-		// home row mode left side
+		// home row mod left side
 		"testdata/zmk/ctrl-c.log",
 		[]KeyPress{
 			{Layer: 0, Position: 22, Taps: 1},
@@ -78,7 +78,7 @@ var countTests = []struct {
 		[]ComboPress{},
 	},
 	{
-		// home row mode left side
+		// home row mod left side
 		"testdata/zmk/command-t.log",
 		[]KeyPress{
 			{Layer: 0, Position: 13, Taps: 1},
@@ -87,7 +87,7 @@ var countTests = []struct {
 		[]ComboPress{},
 	},
 	{
-		// home row mode left + right side
+		// home row mod left + right side
 		"testdata/zmk/command-a.log",
 		[]KeyPress{
 			{Layer: 0, Position: 10, Taps: 1},

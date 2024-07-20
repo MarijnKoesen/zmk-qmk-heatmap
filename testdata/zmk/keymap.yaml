@@ -143,10 +143,10 @@ combos:
   k: RETURN
   l: [default, nav, symbol]
 - p: [11, 12]
-  k: TAB
+  k: {t: TAB, h: LA(LCTRL)}
   l: [default, nav, symbol]
 - p: [12, 13]
-  k: '&key_repeat'
+  k: {t: '&key_repeat', h: LS(LCTRL)}
   l: [default, nav, symbol]
 - p: [21, 23]
   k: LC(X)
@@ -164,10 +164,10 @@ combos:
   k: DEL
   l: [default, nav, symbol]
 - p: [16, 17]
-  k: (
+  k: {t: (, h: RS(LCTRL), s: <}
   l: [default, symbol]
 - p: [17, 18]
-  k: )
+  k: {t: ), h: LA(LCTRL), s: '>'}
   l: [default, symbol]
 - p: [16, 17]
   k: <
