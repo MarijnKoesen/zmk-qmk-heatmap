@@ -11,7 +11,8 @@ const (
 )
 
 type ComboPress struct {
-	Number int
+	Layer  int
+	Keys   []int
 	Taps   int
 	Holds  int
 	Shifts int

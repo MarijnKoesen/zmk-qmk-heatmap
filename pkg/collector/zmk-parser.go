@@ -1,22 +1,40 @@
 package collector
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
+
 	. "zmk-heatmap/pkg/heatmap"
 	"zmk-heatmap/pkg/keycodes"
 	"zmk-heatmap/pkg/keymap"
 )
 
+type state_ struct {
+	keyState keyState
+	layer    int
+}
+
+type keyState int
+
+const (
+	stateUp keyState = iota
+	stateDown
+	stateHold
+	stateShifted
+)
+
 type ZmkParser struct {
 	KeyMap               *keymap.Keymap
 	numberOfKeysInKeyMap int
-	pressed              map[string]bool
+	currentLayer         int
+	state                map[int]*state_
 	shiftIsDown          bool
 }
 
 func (p *ZmkParser) Parse(logLine string, heatmap *Heatmap) (err error) {
 	logLine = strings.Trim(logLine, "\n")
+	logLine = strings.ReplaceAll(logLine, "\u001B[0m", "")
 	tokens := strings.Split(logLine, " ")
 
 	if len(tokens) < 5 {
@@ -28,6 +46,7 @@ func (p *ZmkParser) Parse(logLine string, heatmap *Heatmap) (err error) {
 
 	switch messageType {
 	case "zmk_hid_register_mod", "zmk_hid_unregister_mod":
+		// Handle pressing of shift
 		if !strings.Contains(logLine, "Modifiers set to") {
 			break
 		}
@@ -39,31 +58,82 @@ func (p *ZmkParser) Parse(logLine string, heatmap *Heatmap) (err error) {
 		}
 
 		p.shiftIsDown = (mods&keycodes.ModifierLeftShift > 0) || (mods&keycodes.ModifierRightShift > 0)
-		break
 
-	case "zmk_keymap_apply_position_state":
-		layer, position, err := p.parseKeyPress(messageTokens[1], messageTokens[3])
+	case "set_layer_state":
+		// Handle layer switching
+		layer, err := strconv.Atoi(messageTokens[2])
 		if err != nil {
 			return err
 		}
 
-		// Keypresses show up twice in the apply Position state, once as the
-		// key down and once as a key up, but that info is not in the logLine,
-		// so we need to keep track of that.
-		pressString := messageTokens[1] + messageTokens[3]
-		if p.pressed[pressString] {
-			p.pressed[pressString] = false
-			heatmap.RegisterKeyPress(layer, position, getPressType(p.shiftIsDown))
+		if messageTokens[4] == "1" {
+			p.currentLayer = layer
 		} else {
-			p.pressed[pressString] = true
+			p.currentLayer = 0
 		}
 
-		// timestamp := strings.Trim(tokens[0], "[]")
-		// message := strings.Join(messageTokens, " ")
-		// fmt.Println(timestamp, ":", messageType, "=>", message, key)
-		break
+	case "decide_hold_tap":
+		// Handle keys going into the 'hold' state
+		position, err := strconv.Atoi(messageTokens[0])
+		if err != nil {
+			return err
+		}
+
+		if messageTokens[1] == "decided" && messageTokens[2] == "hold-timer" {
+			p.state[position].keyState = stateHold
+		}
+
+	case "zmk_keymap_apply_position_state":
+		// This is the normal/main handling of keys presses
+		layer, position, err := p.parseApplyPositionStateKeyPress(messageTokens[1], messageTokens[3])
+		if err != nil {
+			return err
+		}
+
+		if p.state[position] == nil {
+			p.registerPress(position, layer)
+		} else {
+			heatmap.RegisterKeyPress(
+				p.state[position].layer,
+				position,
+				getPressType(p.state[position].keyState),
+			)
+
+			p.state[position] = nil
+		}
+
+	case "on_keymap_binding_pressed":
+		// Handle combo presses
+		var position int
+		layer := p.currentLayer
+
+		if messageTokens[0] == "layer" {
+			// Handle combo presses on the peripheral side
+			layer, position, err = p.parseApplyPositionStateKeyPress(messageTokens[1], messageTokens[3])
+			if err != nil {
+				return err
+			}
+		} else if messageTokens[0] == "position" {
+			// Handle combo presses on the main side
+			position, err = strconv.Atoi(messageTokens[1])
+			if err != nil {
+				return err
+			}
+		} else {
+			return fmt.Errorf("unsupported on_keymap_binding_pressed line")
+		}
+
+		if position < p.KeyMap.NumberOfKeys() {
+			break
+		}
+
+		if p.state[position] == nil {
+			// With a combo we don't always get the zmk_keymap_apply_position_state, e.g. with combo-right-hold-shift-ctrl-i.log
+			p.registerPress(position, layer)
+		}
 
 	case "on_keymap_binding_released":
+		// Handle combo releases
 		virtualKeyNumber, err := strconv.Atoi(messageTokens[1])
 		if err != nil {
 			return err
@@ -73,43 +143,97 @@ func (p *ZmkParser) Parse(logLine string, heatmap *Heatmap) (err error) {
 			break
 		}
 
-		heatmap.RegisterComboPress(virtualKeyNumber-p.KeyMap.NumberOfKeys(), getPressType(p.shiftIsDown))
+		combo, err := p.KeyMap.ComboByPosition(virtualKeyNumber)
+		if err != nil {
+			return err
+		}
 
-		//fmt.Println(messageTokens)
-		// key := p.KeyMap.Combos[virtualKeyNumber-p.KeyMap.NumberOfKeys].Key
-		// fmt.Println("ComboPress press:", virtualKeyNumber, "(", key, ")")
-		break
+		heatmap.RegisterComboPress(p.currentLayer, combo.Keys, getPressType(p.state[virtualKeyNumber].keyState))
+		p.state[virtualKeyNumber] = nil
+
+	case "on_hold_tap_binding_pressed":
+		// With a combo on the peripheral half we don't always get the zmk_keymap_apply_position_state
+		// For an example see combo-right-hold-shift-ctrl-i.log, so we need to handle that here
+		virtualKeyNumber, err := strconv.Atoi(messageTokens[0])
+		if err != nil {
+			return err
+		}
+
+		if p.state[virtualKeyNumber] == nil {
+			p.registerPress(virtualKeyNumber, p.currentLayer)
+		}
+
+	case "on_hold_tap_binding_released":
+		virtualKeyNumber, err := strconv.Atoi(messageTokens[0])
+		if err != nil {
+			return err
+		}
+
+		p.state[virtualKeyNumber] = nil
 	}
 
 	return
 }
 
-func getPressType(shiftIsDown bool) PressType {
-	if shiftIsDown {
-		return Shifted
+func (p *ZmkParser) registerPress(position int, layer int) {
+	p.state[position] = &state_{
+		keyState: stateDown,
+		layer:    p.currentLayer,
 	}
 
-	return Tap
+	if p.shiftIsDown {
+		p.state[position].keyState = stateShifted
+	}
 }
 
-func (p ZmkParser) parseKeyPress(layerString string, positionString string) (layer int, position int, err error) {
+func getPressType(state keyState) PressType {
+	switch state {
+	case stateShifted:
+		return Shifted
+	case stateHold:
+		return Hold
+	default:
+		return Tap
+	}
+}
+
+func (p ZmkParser) parseApplyPositionStateKeyPress(layerString string, positionString string) (layer int, position int, err error) {
 	layer, err = strconv.Atoi(layerString)
 	if err != nil {
 		return
 	}
 
 	position, err = strconv.Atoi(strings.TrimRight(positionString, ":,"))
+	return
+}
+
+func (p ZmkParser) parseKScanKeyPress(rowString string, colString string, positionString string, pressedString string) (row int, col int, position int, pressed bool, err error) {
+	row, err = strconv.Atoi(strings.TrimRight(rowString, ","))
 	if err != nil {
 		return
 	}
 
-	return
+	col, err = strconv.Atoi(strings.TrimRight(colString, ":,"))
+	if err != nil {
+	}
+	position, err = strconv.Atoi(strings.TrimRight(positionString, ":,"))
+	if err != nil {
+		return
+	}
+
+	pressed, err = strconv.ParseBool(strings.TrimRight(pressedString, ":,"))
+	if err != nil {
+		return
+	}
+
+	return row, col, position, pressed, nil
 }
 
 func NewZmkLogParser(keyMap *keymap.Keymap) *ZmkParser {
 	return &ZmkParser{
 		KeyMap:               keyMap,
-		pressed:              make(map[string]bool),
+		currentLayer:         0,
+		state:                make(map[int]*state_),
 		shiftIsDown:          false,
 		numberOfKeysInKeyMap: keyMap.NumberOfKeys(),
 	}

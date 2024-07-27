@@ -2,14 +2,26 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/spf13/cobra"
 	"image/color"
 	"log"
+	"slices"
 	"sort"
+
+	"github.com/spf13/cobra"
+
 	heatmappkg "zmk-heatmap/pkg/heatmap"
+	"zmk-heatmap/pkg/keymap"
 )
 
 var inputParam string
+
+func init() {
+	rootCmd.AddCommand(generateCmd)
+
+	generateCmd.Flags().StringVarP(&inputParam, "input", "i", "heatmap.json", "e.g. ~/heatmap.json")
+	generateCmd.Flags().StringVarP(&keymapParam, "keymap", "m", "keymap.yaml", "e.g. ~/keymap.yaml")
+	generateCmd.Flags().IntVarP(&numSensors, "sensors", "s", 0, "the number of sensors (encoders) of the keyboard, this value is needed to properly collect combos")
+}
 
 var generateCmd = &cobra.Command{
 	Use:   "generate",
@@ -38,6 +50,13 @@ var generateCmd = &cobra.Command{
 			max = maxCombo
 		}
 
+		keymapFile := keymapParam
+		keymapp, err := keymap.Load(keymapFile, numSensors)
+		if err != nil {
+			log.Fatalln("Cannot load the keymap:", err)
+		}
+		log.Println("Loading keymap", keymapFile)
+
 		for _, press := range heatmap.KeyPresses {
 			perc := (float32(press.GetTotalPressCounts()) / float32(max))
 			luminance := uint8(255 * perc)
@@ -57,16 +76,36 @@ var generateCmd = &cobra.Command{
 		}
 
 		for _, press := range heatmap.ComboPresses {
+			comboIndex, err := getComboIndex(keymapp, press)
+			if err != nil {
+				panic(err)
+			}
+
 			perc := (float32(press.GetTotalPressCounts()) / float32(max))
 			luminance := uint8(255 * perc)
 			color := heatmappkg.RgbaToRgb(color.RGBA{R: 255, G: 0, B: 0, A: luminance}, heatmappkg.RGB{R: 255, G: 255, B: 255})
-			fmt.Printf(".combopos-%d rect { stroke: #c9cccf; stroke-width: 1; fill: #%02X%02X%02X; }\n", press.Number, color.R, color.G, color.B)
+			fmt.Printf("svg > g:nth-of-type(%d) .combopos-%d rect { stroke: #c9cccf; stroke-width: 1; fill: #%02X%02X%02X; }\n", press.Layer+1, comboIndex, color.R, color.G, color.B)
 		}
 	},
 }
 
-func init() {
-	rootCmd.AddCommand(generateCmd)
+func getComboIndex(keymap *keymap.Keymap, press heatmappkg.ComboPress) (int, error) {
+	layerName := keymap.Layers[press.Layer].Name
 
-	generateCmd.Flags().StringVarP(&inputParam, "input", "i", "heatmap.json", "e.g. ~/heatmap.json")
+	index := 0
+	for _, combo := range keymap.Combos {
+		if !slices.Contains(combo.Layers, layerName) {
+			// We must not increase the index in case the combo is not active on this layer, as it will be filtered
+			// out by the keymap tool so the svg numbers would be mismatched if we'd increase them here
+			continue
+		}
+
+		if slices.Equal(combo.Keys, press.Keys) {
+			return index, nil
+		}
+
+		index++
+	}
+
+	return 0, fmt.Errorf("cannot find combo")
 }

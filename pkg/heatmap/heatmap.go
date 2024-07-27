@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"io"
 	"os"
+	"slices"
 )
 
 type Heatmap struct {
@@ -12,10 +13,11 @@ type Heatmap struct {
 }
 
 func (m *Heatmap) RegisterKeyPress(layer int, position int, pressType PressType) {
-	for i, _ := range m.KeyPresses {
+	for i := range m.KeyPresses {
 		if m.KeyPresses[i].Position == position &&
 			m.KeyPresses[i].Layer == layer {
 			m.KeyPresses[i].RegisterPress(pressType)
+			// fmt.Printf("key press: %s\n", m.KeyPresses[i])
 			return
 		}
 	}
@@ -26,31 +28,35 @@ func (m *Heatmap) RegisterKeyPress(layer int, position int, pressType PressType)
 	}
 	press.RegisterPress(pressType)
 
+	// fmt.Printf("key press: %s\n", press)
 	m.KeyPresses = append(m.KeyPresses, press)
 }
 
-func (m *Heatmap) RegisterComboPress(number int, pressType PressType) {
-	for i, _ := range m.ComboPresses {
-		if m.ComboPresses[i].Number == number {
+func (m *Heatmap) RegisterComboPress(layer int, keys []int, pressType PressType) {
+	for i := range m.ComboPresses {
+		if m.ComboPresses[i].Layer == layer && slices.Equal(m.ComboPresses[i].Keys, keys) {
+			// fmt.Printf("key press: %s\n", m.KeyPresses[i])
 			m.ComboPresses[i].RegisterPress(pressType)
 			return
 		}
 	}
 
 	press := ComboPress{
-		Number: number,
+		Layer: layer,
+		Keys:  keys,
 	}
 	press.RegisterPress(pressType)
+	// fmt.Printf("key press: %s\n", press)
 
 	m.ComboPresses = append(m.ComboPresses, press)
 }
 
 func (h *Heatmap) GetPressCount() (count int) {
-	for i, _ := range h.KeyPresses {
+	for i := range h.KeyPresses {
 		count += h.KeyPresses[i].Taps + h.KeyPresses[i].Holds + h.KeyPresses[i].Shifts
 	}
 
-	for i, _ := range h.ComboPresses {
+	for i := range h.ComboPresses {
 		count += h.ComboPresses[i].Taps + h.ComboPresses[i].Holds + h.ComboPresses[i].Shifts
 	}
 
@@ -82,7 +88,7 @@ func (h *Heatmap) Save(path string) (err error) {
 		return err
 	}
 
-	err = os.WriteFile(path, bytes, 0644)
+	err = os.WriteFile(path, bytes, 0o644)
 	return
 }
 

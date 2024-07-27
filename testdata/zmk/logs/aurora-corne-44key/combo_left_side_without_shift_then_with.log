@@ -1,0 +1,111 @@
+[01:31:42.795,135] [0m<dbg> zmk: kscan_matrix_read: Sending event at 2,4 state on[0m
+[01:31:42.795,257] [0m<dbg> zmk: zmk_kscan_process_msgq: Row: 2, col: 4, position: 28, pressed: true[0m
+[01:31:42.795,288] [0m<dbg> zmk: position_state_changed_listener: 28 bubble (no undecided hold_tap active)[0m
+[01:31:42.795,318] [0m<dbg> zmk: position_state_down: combo: capturing position event 28[0m
+[01:31:42.795,349] [0m<dbg> zmk: zmk_event_manager_handle_from: Listener captured the event[0m
+[01:31:42.801,147] [0m<dbg> zmk: kscan_matrix_read: Sending event at 1,4 state on[0m
+[01:31:42.801,269] [0m<dbg> zmk: zmk_kscan_process_msgq: Row: 1, col: 4, position: 16, pressed: true[0m
+[01:31:42.801,300] [0m<dbg> zmk: position_state_changed_listener: 16 bubble (no undecided hold_tap active)[0m
+[01:31:42.801,300] [0m<dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=3 timestamp=5502801[0m
+[01:31:42.801,330] [0m<dbg> zmk: position_state_down: combo: capturing position event 16[0m
+[01:31:42.801,361] [0m<dbg> zmk: press_combo_behavior: combo: pressing combo (event key_press | 0x7002E | 0x00) with key at position 16 at virtualpos 68[0m
+[01:31:42.801,422] [0m<dbg> zmk: press_combo_behavior: combo: pressing combo (event key_press | 0x7002E | 0x00) with key at position 28 at virtualpos 68[0m
+[01:31:42.801,422] [0m<dbg> zmk: on_keymap_binding_pressed: layer 0 position 68 keycode 0x7002E keycode2 0x00[0m
+[01:31:42.801,483] [0m<dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x2E implicit_mods 0x00 explicit_mods 0x00[0m
+[01:31:42.801,483] [0m<dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x00[0m
+[01:31:42.801,483] [0m<dbg> zmk: zmk_endpoints_send_report: usage page 0x07[0m
+[01:31:42.801,544] [0m<dbg> zmk: zmk_event_manager_handle_from: Listener captured the event[0m
+[01:31:42.956,146] [0m<dbg> zmk: kscan_matrix_read: Sending event at 1,4 state off[0m
+[01:31:42.956,268] [0m<dbg> zmk: zmk_kscan_process_msgq: Row: 1, col: 4, position: 16, pressed: false[0m
+[01:31:42.956,298] [0m<dbg> zmk: position_state_changed_listener: 16 bubble (no undecided hold_tap active)[0m
+[01:31:42.956,329] [0m<dbg> zmk: on_keymap_binding_released: position 68 keycode 0x7002E[0m
+[01:31:42.956,359] [0m<dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x2E implicit_mods 0x00 explicit_mods 0x00[0m
+[01:31:42.956,359] [0m<dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00[0m
+[01:31:42.956,390] [0m<dbg> zmk: zmk_endpoints_send_report: usage page 0x07[0m
+[01:31:42.956,451] [0m<dbg> zmk: zmk_event_manager_handle_from: Listener handled the event[0m
+[01:31:42.966,125] [0m<dbg> zmk: kscan_matrix_read: Sending event at 2,4 state off[0m
+[01:31:42.966,278] [0m<dbg> zmk: zmk_kscan_process_msgq: Row: 2, col: 4, position: 28, pressed: false[0m
+[01:31:42.966,308] [0m<dbg> zmk: position_state_changed_listener: 28 bubble (no undecided hold_tap active)[0m
+[01:31:42.966,339] [0m<dbg> zmk: zmk_event_manager_handle_from: Listener handled the event[0m
+[01:31:43.875,915] [0m<dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x20016203 length 16[0m
+[01:31:43.875,946] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.875,946] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.875,946] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.875,946] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.875,976] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.875,976] [0m<dbg> zmk: split_central_notify_func: data: 1[0m
+[01:31:43.875,976] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.875,976] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.875,976] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.876,007] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.876,007] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.876,007] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.876,037] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.876,037] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.876,037] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.876,037] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:43.876,129] [0m<dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 40[0m
+[01:31:43.876,159] [0m<dbg> zmk: position_state_changed_listener: 40 bubble (no undecided hold_tap active)[0m
+[01:31:43.876,190] [0m<dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 40, binding name: key_press[0m
+[01:31:43.876,220] [0m<dbg> zmk: on_keymap_binding_pressed: layer 0 position 40 keycode 0x700E5 keycode2 0x00[0m
+[01:31:43.876,281] [0m<dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0xE5 implicit_mods 0x00 explicit_mods 0x00[0m
+[01:31:43.876,281] [0m<dbg> zmk: zmk_hid_register_mod: Modifier 5 count 1[0m
+[01:31:43.876,281] [0m<dbg> zmk: zmk_hid_register_mod: Modifiers set to 0x20[0m
+[01:31:43.876,281] [0m<dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x20[0m
+[01:31:43.876,312] [0m<dbg> zmk: zmk_endpoints_send_report: usage page 0x07[0m
+[01:31:44.145,141] [0m<dbg> zmk: kscan_matrix_read: Sending event at 1,4 state on[0m
+[01:31:44.145,263] [0m<dbg> zmk: zmk_kscan_process_msgq: Row: 1, col: 4, position: 16, pressed: true[0m
+[01:31:44.145,294] [0m<dbg> zmk: position_state_changed_listener: 16 bubble (no undecided hold_tap active)[0m
+[01:31:44.145,324] [0m<dbg> zmk: position_state_down: combo: capturing position event 16[0m
+[01:31:44.145,355] [0m<dbg> zmk: zmk_event_manager_handle_from: Listener captured the event[0m
+[01:31:44.149,139] [0m<dbg> zmk: kscan_matrix_read: Sending event at 2,4 state on[0m
+[01:31:44.149,230] [0m<dbg> zmk: zmk_kscan_process_msgq: Row: 2, col: 4, position: 28, pressed: true[0m
+[01:31:44.149,291] [0m<dbg> zmk: position_state_changed_listener: 28 bubble (no undecided hold_tap active)[0m
+[01:31:44.149,291] [0m<dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=3 timestamp=5504149[0m
+[01:31:44.149,322] [0m<dbg> zmk: position_state_down: combo: capturing position event 28[0m
+[01:31:44.149,353] [0m<dbg> zmk: press_combo_behavior: combo: pressing combo (event key_press | 0x7002E | 0x00) with key at position 16 at virtualpos 68[0m
+[01:31:44.149,414] [0m<dbg> zmk: press_combo_behavior: combo: pressing combo (event key_press | 0x7002E | 0x00) with key at position 28 at virtualpos 68[0m
+[01:31:44.149,414] [0m<dbg> zmk: on_keymap_binding_pressed: layer 0 position 68 keycode 0x7002E keycode2 0x00[0m
+[01:31:44.149,475] [0m<dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x2E implicit_mods 0x00 explicit_mods 0x00[0m
+[01:31:44.149,475] [0m<dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x20[0m
+[01:31:44.149,475] [0m<dbg> zmk: zmk_endpoints_send_report: usage page 0x07[0m
+[01:31:44.149,536] [0m<dbg> zmk: zmk_event_manager_handle_from: Listener captured the event[0m
+[01:31:44.276,123] [0m<dbg> zmk: kscan_matrix_read: Sending event at 2,4 state off[0m
+[01:31:44.276,245] [0m<dbg> zmk: zmk_kscan_process_msgq: Row: 2, col: 4, position: 28, pressed: false[0m
+[01:31:44.276,275] [0m<dbg> zmk: position_state_changed_listener: 28 bubble (no undecided hold_tap active)[0m
+[01:31:44.276,306] [0m<dbg> zmk: on_keymap_binding_released: position 68 keycode 0x7002E[0m
+[01:31:44.276,336] [0m<dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x2E implicit_mods 0x00 explicit_mods 0x00[0m
+[01:31:44.276,336] [0m<dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x20[0m
+[01:31:44.276,367] [0m<dbg> zmk: zmk_endpoints_send_report: usage page 0x07[0m
+[01:31:44.276,428] [0m<dbg> zmk: zmk_event_manager_handle_from: Listener handled the event[0m
+[01:31:44.277,130] [0m<dbg> zmk: kscan_matrix_read: Sending event at 1,4 state off[0m
+[01:31:44.277,282] [0m<dbg> zmk: zmk_kscan_process_msgq: Row: 1, col: 4, position: 16, pressed: false[0m
+[01:31:44.277,313] [0m<dbg> zmk: position_state_changed_listener: 16 bubble (no undecided hold_tap active)[0m
+[01:31:44.277,343] [0m<dbg> zmk: zmk_event_manager_handle_from: Listener handled the event[0m
+[01:31:44.445,922] [0m<dbg> zmk: split_central_notify_func: [NOTIFICATION] data 0x20016203 length 16[0m
+[01:31:44.445,922] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,953] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,953] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,953] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,953] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,953] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,983] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,983] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,983] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.445,983] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.446,014] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.446,014] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.446,014] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.446,044] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.446,044] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.446,044] [0m<dbg> zmk: split_central_notify_func: data: 0[0m
+[01:31:44.446,105] [0m<dbg> zmk: peripheral_event_work_callback: Trigger key position state change for 40[0m
+[01:31:44.446,136] [0m<dbg> zmk: position_state_changed_listener: 40 bubble (no undecided hold_tap active)[0m
+[01:31:44.446,197] [0m<dbg> zmk: zmk_keymap_apply_position_state: layer: 0 position: 40, binding name: key_press[0m
+[01:31:44.446,228] [0m<dbg> zmk: on_keymap_binding_released: position 40 keycode 0x700E5[0m
+[01:31:44.446,258] [0m<dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0xE5 implicit_mods 0x00 explicit_mods 0x00[0m
+[01:31:44.446,258] [0m<dbg> zmk: zmk_hid_unregister_mod: Modifier 5 count: 0[0m
+[01:31:44.446,258] [0m<dbg> zmk: zmk_hid_unregister_mod: Modifier 5 released[0m
+[01:31:44.446,289] [0m<dbg> zmk: zmk_hid_unregister_mod: Modifiers set to 0x00[0m
+[01:31:44.446,289] [0m<dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00[0m
+[01:31:44.446,319] [0m<dbg> zmk: zmk_endpoints_send_report: usage page 0x07[0m
