@@ -35,10 +35,10 @@ layers:
     - +
     - Sft+Ctl+ LALT
   - - BSPC
-    - (
-    - )
-    - ''''
     - ;
+    - ':'
+    - {t: BSPC, h: Alt+ BSPC}
+    - {t: DEL, h: Ctl+ DEL}
     - {t: DEL, h: Ctl+ DEL}
     - /
     - '4'

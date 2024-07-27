@@ -3,13 +3,15 @@ package cmd
 import (
 	"bufio"
 	"errors"
-	"github.com/spf13/cobra"
-	"github.com/tarm/goserial"
 	"log"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
+
+	"github.com/spf13/cobra"
+	"github.com/tarm/goserial"
+
 	log_parser "zmk-heatmap/pkg/collector"
 	"zmk-heatmap/pkg/heatmap"
 	"zmk-heatmap/pkg/keymap"
@@ -19,6 +21,7 @@ var (
 	keyboardParam string
 	outputParam   string
 	keymapParam   string
+	numSensors    int
 )
 
 func init() {
@@ -27,6 +30,7 @@ func init() {
 	collectCmd.Flags().StringVarP(&keyboardParam, "keyboard", "k", "auto", "e.g. /dev/tty.usbmodem144001")
 	collectCmd.Flags().StringVarP(&outputParam, "output", "o", "heatmap.json", "e.g. ~/heatmap.json")
 	collectCmd.Flags().StringVarP(&keymapParam, "keymap", "m", "keymap.yaml", "e.g. ~/keymap.yaml")
+	collectCmd.Flags().IntVarP(&numSensors, "sensors", "s", 0, "the number of sensors (encoders) of the keyboard, this value is needed to properly collect combos")
 	collectCmd.MarkFlagRequired("keymap")
 }
 
@@ -65,7 +69,7 @@ var collectCmd = &cobra.Command{
 		}
 
 		keymapFile := keymapParam
-		keymapp, err := keymap.Load(keymapFile)
+		keymapp, err := keymap.Load(keymapFile, numSensors)
 		if err != nil {
 			log.Fatalln("Cannot load the keymap:", err)
 		}
@@ -122,7 +126,7 @@ func storeKeyStrokes(ticker *time.Ticker, heatmap *heatmap.Heatmap) {
 			log.Println("Collected", heatmap.GetPressCount(), "key presses")
 			heatmap.Save(outputParam)
 
-			//case <- quit:
+			// case <- quit:
 			//	ticker.Stop()
 			//	return
 		}

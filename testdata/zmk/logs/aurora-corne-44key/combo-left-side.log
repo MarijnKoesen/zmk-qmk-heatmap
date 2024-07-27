@@ -1,0 +1,28 @@
+[00:59:25.954,132] <dbg> zmk: kscan_matrix_read: Sending event at 1,4 state on
+[00:59:25.954,254] <dbg> zmk: zmk_kscan_process_msgq: Row: 1, col: 4, position: 16, pressed: true
+[00:59:25.954,284] <dbg> zmk: position_state_changed_listener: 16 bubble (no undecided hold_tap active)
+[00:59:25.954,315] <dbg> zmk: position_state_down: combo: capturing position event 16
+[00:59:25.954,315] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[00:59:25.956,146] <dbg> zmk: kscan_matrix_read: Sending event at 0,4 state on
+$[00:59:25.956,237] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 4, position: 4, pressed: true
+[00:59:25.956,268] <dbg> zmk: position_state_changed_listener: 4 bubble (no undecided hold_tap active)
+[00:59:25.956,298] <dbg> zmk: filter_timed_out_candidates: after filtering out timed out combo candidates: remaining_candidates=3 timestamp=3565956
+[00:59:25.956,298] <dbg> zmk: position_state_down: combo: capturing position event 4
+[00:59:25.956,420] <dbg> zmk: on_keymap_binding_pressed: layer 0 position 64 keycode 0x2070021 keycode2 0x00
+[00:59:25.956,451] <dbg> zmk: hid_listener_keycode_pressed: usage_page 0x07 keycode 0x21 implicit_mods 0x02 explicit_mods 0x00
+[00:59:25.956,481] <dbg> zmk: zmk_hid_implicit_modifiers_press: Modifiers set to 0x02
+[00:59:25.956,481] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[00:59:25.956,542] <dbg> zmk: zmk_event_manager_handle_from: Listener captured the event
+[00:59:26.061,126] <dbg> zmk: kscan_matrix_read: Sending event at 1,4 state off
+[00:59:26.061,248] <dbg> zmk: zmk_kscan_process_msgq: Row: 1, col: 4, position: 16, pressed: false
+[00:59:26.061,279] <dbg> zmk: position_state_changed_listener: 16 bubble (no undecided hold_tap active)
+[00:59:26.061,309] <dbg> zmk: on_keymap_binding_released: position 64 keycode 0x2070021
+[00:59:26.061,340] <dbg> zmk: hid_listener_keycode_released: usage_page 0x07 keycode 0x21 implicit_mods 0x02 explicit_mods 0x00
+[00:59:26.061,340] <dbg> zmk: zmk_hid_implicit_modifiers_release: Modifiers set to 0x00
+[00:59:26.061,340] <dbg> zmk: zmk_endpoints_send_report: usage page 0x07
+[00:59:26.061,401] <dbg> zmk: zmk_event_manager_handle_from: Listener handled the event
+[00:59:26.068,267] <dbg> zmk: kscan_matrix_read: Sending event at 0,4 state off
+[00:59:26.068,359] <dbg> zmk: zmk_kscan_process_msgq: Row: 0, col: 4, position: 4, pressed: false
+[00:59:26.068,389] <dbg> zmk: position_state_changed_listener: 4 bubble (no undecided hold_tap active)
+[00:59:26.068,420] <dbg> zmk: zmk_event_manager_handle_from: Listener handled the event
+[00:59:27.564,453] <dbg> zmk: vddh_sample_fetch: ADC raw 3001 ~ 4395 mV => 100%

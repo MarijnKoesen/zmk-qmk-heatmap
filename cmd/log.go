@@ -2,10 +2,11 @@ package cmd
 
 import (
 	"bufio"
-	"github.com/spf13/cobra"
-	"github.com/tarm/goserial"
 	"log"
 	"os"
+
+	"github.com/spf13/cobra"
+	"github.com/tarm/goserial"
 )
 
 var logCmd = &cobra.Command{
@@ -28,6 +29,17 @@ var logCmd = &cobra.Command{
 
 		log.Println("Connecting to the keyboardPath at:", keyboardPath)
 
+		var logFile *os.File
+		if outputParam != "" {
+			logFile, err = os.OpenFile(outputParam, os.O_WRONLY|os.O_CREATE, 0o644)
+			if err != nil {
+				log.Fatalln("cannot open output file: " + err.Error())
+			}
+
+			// logFile = bufio.NewWriter(file)
+			defer logFile.Sync()
+		}
+
 		c := &serial.Config{Name: keyboardPath, Baud: 115200}
 		s, err := serial.OpenPort(c)
 		if err != nil {
@@ -36,7 +48,15 @@ var logCmd = &cobra.Command{
 
 		scanner := bufio.NewScanner(s)
 		for scanner.Scan() {
-			log.Println(scanner.Text())
+			if outputParam != "" {
+				_, err = logFile.WriteString(scanner.Text() + "\n")
+				if err != nil {
+					log.Fatalln("cannot write to file ", outputParam, ":"+err.Error())
+				}
+
+			} else {
+				log.Println(scanner.Text())
+			}
 		}
 		if scanner.Err() != nil {
 			log.Fatal(err)
@@ -48,4 +68,5 @@ func init() {
 	rootCmd.AddCommand(logCmd)
 
 	logCmd.Flags().StringVarP(&keyboardParam, "keyboard", "k", "auto", "e.g. /dev/tty.usbmodem144001")
+	logCmd.Flags().StringVarP(&outputParam, "output", "o", "", "e.g. testdata/zmk/my.log")
 }
