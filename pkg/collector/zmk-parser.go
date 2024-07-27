@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
 	. "zmk-heatmap/pkg/heatmap"
 	"zmk-heatmap/pkg/keycodes"
 	"zmk-heatmap/pkg/keymap"
@@ -214,7 +215,6 @@ func (p ZmkParser) parseKScanKeyPress(rowString string, colString string, positi
 
 	col, err = strconv.Atoi(strings.TrimRight(colString, ":,"))
 	if err != nil {
-
 	}
 	position, err = strconv.Atoi(strings.TrimRight(positionString, ":,"))
 	if err != nil {
